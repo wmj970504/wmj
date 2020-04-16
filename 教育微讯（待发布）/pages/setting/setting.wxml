@@ -1,0 +1,28 @@
+<!--pages/setting/setting.wxml-->
+
+
+<view class="weui-cells weui-cells_after-title">
+	<navigator url="../personaldata/personaldata" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+			<view class="weui-cell__bd">个人资料</view>
+			<view class="weui-cell__ft">
+					<image class='list-icon' src='../../img/mine-detail.png'></image>
+			</view>
+	</navigator>
+	<navigator url="../settingpwd/settingpwd" class="weui-cell " hover-class="weui-cell_active">
+			<view class="weui-cell__bd">修改密码</view>
+			<view class="weui-cell__ft">
+					<image class='list-icon' src='../../img/mine-detail.png'></image>
+			</view>
+	</navigator>
+</view>
+
+<view class="about-usall weui-cells weui-cells_after-title">
+<navigator url="../aboutus/aboutus" class="about-us weui-cell " hover-class="weui-cell_active">
+			<view class="weui-cell__bd">关于我们</view>
+			<view class="weui-cell__ft">
+					<image class='list-icon' src='../../img/mine-detail.png'></image>
+			</view>
+	</navigator>
+	</view>
+
+	<button class='quit' bindtap='quit'>退出当前账号</button>

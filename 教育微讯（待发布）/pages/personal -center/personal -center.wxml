@@ -1,0 +1,125 @@
+<!--pages/personal -center/personal -center.wxml-->
+<view class="page-container bg-color">
+  <view class="box-container">
+    <image class='bg-img' src='../../img/person-top.png'></image>
+    <view class="user-info-container" style='text-align:center'>
+      <view class="u-img-wrap">
+        <image style="width:60px;height:60px;overflow:hidden;border-radius:50%;margin-top:10rpx;" src="{{user.avatar}}"></image>
+      </view>
+      <view class="u-info-wrap">
+        <!-- <view class="font-16rem">{{targetUser.Nickname}}</view> -->
+        <view class="font-16rem">
+          <text class='person-name' style='margin-top:5rpx;'>{{user.user_name}}</text>
+          <view class='person-title'>
+            <navigator url='../attend/attend?user_id={{user.id}}'>{{user.user_fallow_count}}关注 |</navigator>
+            <navigator url='../fans/fans?user_id={{user.id}}'>{{user.user_fans_count}}粉丝 |</navigator>
+            <text>  {{user.region}}    		   					</text>
+          </view>
+          <text class='person-autograph'>	
+									{{user.description}}
+							</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='percenter'>
+    <scroll-view scroll-x class="bg-white nav">
+      <view class="flex text-center">
+        <view class="percenter-nav cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{post}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+          {{item.title}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 贴子 -->
+  <view wx:if="{{TabCur == 0}}" class='post'>
+
+    <view class="cu-card dynamic no-card">
+      <navigator url='../postdetail/postdetail?id={{item.id}}' class="cu-item" style="margin-bottom:30rpx;" wx:for="{{postList}}" wx:key="id" wx:if="{{item.type==1}}">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <navigator url='../personal -center/personal -center' class="floor-img cu-avatar round lg" style="background-image:url({{item.avatar}});"></navigator>
+            <view class="content flex-sub">
+              <view class='floor-name'>{{item.user_name}}
+                <view class="tag-list">
+                  <view class="padding-xs ">
+                    <view class="floor-icon cu-tag tag-sm line-green">{{item.grade_name}}</view>
+                    <view class="floor-icon cu-tag tag-sm line-blue">{{item.category_text}}</view>
+                  </view>
+                </view>
+                <view class="floor-btn margin-tb-sm text-center">
+                </view>
+
+              </view>
+              <view class="text-gray text-sm flex justify-between">
+                {{item.add_time_text}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="text-content">
+          {{item.title}}
+        </view>
+        <view class="grid flex-sub padding-lr {{item.cover.length > 1 ? 'col-3 grid-square' : 'col-1'}}">
+          <view class="bg-img {{item.cover.length > 1 ? '' : 'only-img'}}" style="background-image:url({{itemCover}});" wx:for="{{item.cover}}" wx:for-item="itemCover" wx:key="index">
+          </view>
+        </view>
+
+        <view class="text-gray text-md text-right padding solid-top margin">
+          <text class="card-icon cuIcon-attentionfill margin-lr-xs"></text> {{item.view}}
+          <text class="card-icon cuIcon-messagefill margin-lr-xs"></text> {{item.comment_count}}
+          <!-- <text class="card-icon cuIcon-appreciatefill margin-lr-xs"></text> {{item.star_count}} -->
+          <image class='card-icon' src="{{item.is_stared ? good_select : good}}"></image>{{item.star_count}}
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 问答 -->
+  <view wx:if="{{TabCur == 1}}" class='ask'>
+    <view class='cu-card dynamic no-card'>
+      <navigator url='../postdetail/postdetail?id={{item.id}}' class="cu-item" style="margin-bottom:30rpx;" wx:for="{{postList}}" wx:key="id" wx:if="{{item.type==2}}">
+        <image wx:if="{{item.type ==2}}" class='ask-img' src='../../img/ask.png'></image>
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <navigator url='../personal -center/personal -center' class="floor-img cu-avatar round lg" style="background-image:url({{item.avatar}});"></navigator>
+            <view class="content flex-sub">
+              <view class='floor-name'>{{item.user_name}}
+                <view class="tag-list">
+                  <view class="padding-xs ">
+                    <view class="floor-icon cu-tag tag-sm line-green">{{item.grade_name}}</view>
+                    <view class="floor-icon cu-tag tag-sm line-blue">{{item.category_text}}</view>
+                  </view>
+                </view>
+                <view class="floor-btn margin-tb-sm text-center">
+                </view>
+
+              </view>
+              <view class="text-gray text-sm flex justify-between">
+                {{item.add_time_text}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="text-content">
+          {{item.title}}
+        </view>
+        <view class="grid flex-sub padding-lr {{item.cover.length > 1 ? 'col-3 grid-square' : 'col-1'}}">
+          <view class="bg-img {{item.cover.length > 1 ? '' : 'only-img'}}" style="background-image:url({{itemCover}});" wx:for="{{item.cover}}" wx:for-item="itemCover" wx:key="index">
+          </view>
+        </view>
+
+        <view class="text-gray text-md text-right padding solid-top margin">
+          <text class="card-icon cuIcon-attentionfill margin-lr-xs"></text> {{item.view}}
+          <text class="card-icon cuIcon-messagefill margin-lr-xs"></text> {{item.comment_count}}
+          <!-- <text class="card-icon cuIcon-appreciatefill margin-lr-xs"></text>{{item.star_count}} -->
+          <image class='card-icon' src="{{item.is_stared ? good_select : good}}"></image>{{item.star_count}}
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+</view>
+
+<button style='color:{{color}};background-color:{{background}};' class="atn-btn " bindtap='selected' wx:if="{{user.id != user_id}}">{{atn}}</button>

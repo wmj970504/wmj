@@ -1,0 +1,10 @@
+<!--pages/useragreement/useragreement.wxml-->
+
+
+<view class='useragreement-container'>
+		<view class='useragreement-title'>用户协议</view>
+<view class='useragreement-info'>
+  <rich-text nodes="{{agreement}}"></rich-text>
+</view>
+</view>
+

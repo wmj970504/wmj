@@ -1,0 +1,36 @@
+<!--pages/collection/collection.wxml-->
+
+<view class='system-container'>
+		<view class='system-part' wx:for="{{list}}">
+    <view class='boo_img3' data-index="{{index}}" data-name="{{item.id}}" bindtap='select' wx:if="{{is_edit == 1}}">
+                <image data-id='0' style='width:13px;height:13px;margin-top:30px;margin-right:30px;' src="{{item.checked==true?'../../img/select_success.png':'../../img/select_default.png'}}"></image>
+            </view>
+					<view class='part-left'>
+							<image class='system-img' src='../../img/collection-green.png'></image>
+					</view>
+					<view class='part-right'>
+							<view class='info-top'>
+										<text class='info-title'>收藏通知</text>
+										<text class='info-time'>{{item.add_time_text}}</text>
+							</view>
+							<view class='info-bottom'>
+										<text class='info-detail'>{{item.content_cut}}</text>
+							</view>
+					</view>
+		</view>
+
+			    <view style='height:50px;'></view>
+</view>
+
+<button class='bottom-btn1' bindtap='edit' wx:if="{{is_edit == 0}}">编辑</button>
+<view wx:else style="width:100%;position:fixed;overflow:hidden;bottom:0;border-top:1px solid #eee;background-color:#fff">
+  <view style='float:left;width:50%;text-align:center;margin-top:5px;' bindtap='selectAll'>
+    <image src="../../img/select_all.png" style="width:19px;height:19px;"></image>
+    <view>全选</view>
+  </view>
+  <view style='float:left;width:50%;text-align:center;margin-top:5px;' bindtap='deletes'>
+    <image src="../../img/select_del.png" style="width:19px;height:19px;"></image>
+    <view>删除</view>
+  </view>
+  
+</view>

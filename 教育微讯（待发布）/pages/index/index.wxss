@@ -1,0 +1,157 @@
+.search-btn {
+  color: #1fc987;
+}
+
+.home-focus .cu-item {
+  height: 362rpx;
+  width: 280rpx;
+  display: inline-block;
+  border: 1rpx solid #ccc;
+}
+
+.nav-card {
+  width: 100%;
+  height: 456rpx;
+  background-color: white;
+  margin-top: 30rpx;
+}
+
+.nav-card-title {
+  margin-left: 15rpx;
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+}
+
+.card-img {
+  margin-top: 30rpx;
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.card-title {
+  height: 29rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+}
+
+.card-info {
+  margin-top: 15rpx;
+  height: 44rpx;
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.top-btn {
+  margin: auto;
+  margin-top: 30rpx;
+  width: 220rpx;
+  height: 40rpx;
+  background: rgba(255, 106, 0, 1);
+  border-radius: 4px;
+  font-size: 20rpx;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.floor-name {
+  height: 45rpx;
+}
+
+.floor-icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.floor-icon {
+  max-width: 120rpx;
+  /* width: 80rpx; */
+  margin-left: 10rpx;
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  height: 30rpx;
+  vertical-align: center;
+}
+
+.floor-btn {
+  width: 160rpx;
+  height: 48rpx;
+}
+
+.ask-img {
+  width: 65rpx;
+  height: 66rpx;
+  /* float: right; */
+  position:absolute;
+  z-index:1;
+  right:0px;
+
+}
+
+.foucs-btn {
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+
+.cu-btn.lg {
+  font-size: 20rpx;
+}
+
+.f-btn {
+  width: 160rpx;
+}
+
+.icon-img {
+  width: 28rpx;
+  height: 20rpx;
+}
+
+.card-icon {
+  width: 36rpx;
+  height: 36rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  position: relative;
+  top: 3rpx;
+  box-sizing: content-box;
+}
+
+.text-card {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+}
+
+.icon-text {
+  width: 21rpx;
+  height: 17rpx;
+}
+
+.media {
+  width: 100%;
+}
+
+.cu-btn-index{
+   position: absolute;
+   right: -5px;
+}
+
+.margin-bottom{
+  margin-bottom: 0px !important;
+}

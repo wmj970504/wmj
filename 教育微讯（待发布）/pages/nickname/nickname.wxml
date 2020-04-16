@@ -1,0 +1,11 @@
+<!--pages/nickname/nickname.wxml-->
+
+<view class='name-container'>
+  <view class='name-total'>
+    <text class='name-title'>昵称</text>
+    <input class='name-enter' placeholder='支持中英文、数字' value='{{user_name}}' bindinput='bindInput'></input>
+  </view>
+</view>
+<view class='hr'></view>
+<view class='tip'>{{text}}</view>
+<button class="nickname-btn " bindtap='handleSave'>提交</button>

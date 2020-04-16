@@ -1,0 +1,13 @@
+<view style='text-align:center;'>
+    <image src='../../img/computer_publish1.png' style='width:40%;margin:50px auto;height:120px;'></image>
+</view>
+  <view class='btn-small'>步骤1</view>
+  <view class='text'>
+  在PC端l浏览器登录以下网址
+  <br/>
+  https://www.jiaoyuweixun.com/pc/
+  </view>
+  <view class='btn-small'>步骤2</view>
+  <view class='text'>扫描网页中的二维码进入编辑器</view>
+
+<button class='btn' bindtap='getScancode'>打开扫一扫</button>

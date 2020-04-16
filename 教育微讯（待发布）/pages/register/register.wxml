@@ -1,0 +1,45 @@
+<!--pages/register/register.wxml-->
+
+<view class='login-logo'>
+			<image class='logo-img' src='../../img/logo.png'></image>
+</view>
+
+
+<view class='login-container'>
+
+	<view class="cu-form-group">
+		<view class="title">
+				<image class='title-img' src='../../img/phone.png'></image>
+		</view>
+		<input placeholder="请输入手机号码" bindinput='bindphone'></input>
+	</view>
+
+	<view class="cu-form-group">
+		<view class="title">
+				<image class='title-img' src='../../img/getright.png'></image>
+		</view>
+		<input placeholder="请输入验证码" bindinput='bindCodeInput'></input> 
+
+		<button class="cu-btn bg-green shadow" bindtap='getCode' hidden='{{hidden}}' disabled='{{btnDisabled}}' >{{btnValue}}</button>
+	</view>
+
+	<view class="cu-form-group">
+		<view class="title">
+				<image class='title-img' src='../../img/pwd.png'></image>
+		</view>
+		<input type="password" placeholder="请输入密码登录" bindinput='bindPass'></input>
+	</view>
+
+	<view class='login-attend'>
+		<image class='attend-img' src='../../img/agree.png'></image>
+			<text class='attend-info info-agree'>已阅读，并同意</text>
+				<navigator url='../useragreement/useragreement' class='info-detail'>《用户协议》</navigator>
+			<text class='attend-info'>相关条例</text>
+	</view>
+	
+	<button class='confirm' bindtap='submitTo'>立即注册</button>
+	<view class='login-help'>
+				<text class='register'>已有账号，</text>
+				<navigator url='../login/login' class='forget'>立即登录</navigator>
+	</view>
+</view>

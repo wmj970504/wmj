@@ -1,0 +1,29 @@
+/* pages/setting/setting.wxss */
+
+.list-icon
+{
+		width: 18rpx;
+		height: 30rpx;
+}
+
+
+
+.about-us
+{
+		background-color: #fff;
+		margin-top:30rpx;
+}
+
+.quit
+{
+		width: 90%;
+		margin: auto;
+		margin-top:387rpx;
+		background-color: #FF6A00;
+		color: white;
+		height:74rpx;
+		border-radius:37rpx;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+}

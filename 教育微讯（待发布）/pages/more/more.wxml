@@ -1,0 +1,78 @@
+<!--pages/more/more.wxml-->
+<view class='more-container'>
+  <view class='comment-details' style='border:none;'>
+    <view class='comment-person'>
+      <image class='person-img' src='{{list.comment_info.avatar}}'></image>
+      <text class='person-name'>{{list.comment_info.user_name}}</text>
+      <view style=' width:40px;height:15px;text-align: center;font-size:10px;color: #77DEB6;border:1px solid #77DEB6;line-height:25rpx;margin-left:20px' class='t1'>{{list.comment_info.grade_name}}</view>
+      <text class='floor1' style='padding-left:14%;'>{{num}}楼</text>
+    </view>
+    <view class='person-detail'>
+      <text class='pdetail'>{{list.comment_info.content}}</text>
+      <view class='pdetail-info'>
+     
+        <text class='detail-time'>{{list.comment_info.add_time_text}}</text>
+         <!-- 信息 -->
+        <image class='comment-img1' src='../../img/comment.png'></image>{{list.comment_info.discuss_count}}
+        <!-- 点赞 -->
+        <image style="color:{{item.is_stared==0?'#666':'red'}}" data-index='{{list.comment_info.is_stared}}' bindtap="links" class='comment-img2' src='../../img/good.png'></image>{{list.comment_info.star_count}}
+        <!-- <text class='delate' bindtap=''>删除</text> -->
+      </view>
+    </view>
+  </view>
+
+  <view class='cmore-container' >
+    <view class='cpmre-all'>
+      <text class='all-d'>全部回复</text>
+    </view>
+  </view>
+
+
+
+
+
+  <view class="cu-list menu-avatar comment solids-top">
+      
+      <view class="comment-all cu-item" wx:for="{{list.list}}" wx:key="{{index}}" wx:if="{{item.reply_user_id == '' }}">
+        <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="cu-avatar round" style="background-image:url({{item.avatar}});"></navigator>
+        <view class="content">
+          <view class="commenter text-grey" style='margin-top:12rpx;'>{{item.user_name}}</view>
+          <view class="text-gray text-df" style='text-align:right;width:100%;position:absolute;top:6rpx;'>{{item.add_time_text}}</view>
+          <view class="commenter-text text-gray text-content text-df" style='margin-top:15rpx;'>
+            {{item.content}}。
+          </view>
+
+
+            <view class="commented padding-sm radius margin-top-sm text-sm" wx:for="{{list.list}}" wx:for-item="value" wx:if="{{value.reply_user_id != '' && (item.user_id == value.reply_user_id || item.user_id == value.user_id)}}">
+              <view class="flex" style='margin-top:20rpx;height:40rpx;padding-left:0px;'>
+                <view class='commented-commenter' bindtap="showModal" data-target="commentbottom" data-type="small" data-id="{{item.id}}" data-cid="{{list.comment_info.id}}">
+                    {{value.reply_user_name==""?value.user_name:value.user_name+" 回复 "+value.reply_user_name}}：
+                    <text style='color:black;'>{{value.content}}</text>
+                </view>
+                <view class="flex-sub"></view>
+              </view>
+            </view>
+
+        </view>
+      </view>
+    </view>
+
+
+  <view style='margin-bottom:20px;height:10px;'></view>
+
+
+<!-- 回复评论 -->
+  <navigator class="ft-btn weui-btn" bindtap="showModal" data-target="commentbottom">
+    <text class='btn-text' >回复评论</text>
+  </navigator>
+</view>
+
+
+<view class="cu-modal bottom-modal {{modalName=='commentbottom'?'show':''}}" bindtap="hideModal">
+  <view class="popup-main cu-dialog" catchtap>
+    <view class="popup-detail">
+      <input class='popup' placeholder='说几句吧~' bindinput='comment_text' ></input>
+      <text class='popup-text' bindtap='publish_common' data-id="" data-type="{{type}}"  data-cid="{{list.comment_info.id}}">发布</text>
+    </view>
+  </view>
+</view>

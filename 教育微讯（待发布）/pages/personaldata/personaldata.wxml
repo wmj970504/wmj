@@ -1,0 +1,88 @@
+<!--pages/personaldata/personaldata.wxml-->
+
+<view class="weui-cells weui-cells_after-title">
+  <navigator url="../modifyinghead/modifyinghead" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="list-title weui-cell__bd">头像</view>
+    <view class="weui-cell__ft">
+      <image class='person-img' src='{{user.avatar}}'></image>
+      <image class='list-icon' src='../../img/mine-detail.png'></image>
+    </view>
+  </navigator>
+  <!-- <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class=" list-title weui-cell__bd">地区</view>
+    <view class="list-text weui-cell__ft">
+      {{user.city}}
+      <image class='list-icon' src='../../img/mine-detail.png'></image>
+    </view>
+  </navigator> -->
+
+  <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="list-title weui-cell__bd">地区</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker" wx:if="{{city == '' && province == ''}}">
+          {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+        </view>
+
+        <view class='piker' wx:else="{{city != '' && province != ''}}">
+          {{province}}，{{city}}
+        </view>
+      </picker>
+    </view>
+    
+
+  <view bindtap='handleUsername' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class=" list-title weui-cell__bd">昵称</view>
+    <view class="list-text weui-cell__ft">
+      {{user.user_name}}
+      <image class='list-icon' src='../../img/mine-detail.png'></image>
+    </view>
+  </view>
+  <navigator url="../" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class=" list-title weui-cell__bd">微信</view>
+    <view class="list-text weui-cell__ft">
+      {{user.is_wechat==1?"已绑定":"未绑定"}}
+    </view>
+  </navigator>
+  <view bindtap='handlePhone' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class=" list-title weui-cell__bd">手机号码</view>
+    <view class="list-text weui-cell__ft">
+      {{user.display_mobile}}
+      <image class='list-icon' src='../../img/mine-detail.png'></image>
+    </view>
+  </view>
+  <view class="weui-cell">
+    <view class=" list-title weui-cell__bd">性别</view>
+    <view class="list-text weui-cell__ft">
+      <view class='select_box'>
+        <view class='select' catchtap='selectTapShow'>
+          <text class='select_text'>{{selectData[user.gender]}}</text>
+          <image class='select_img {{show&&"select_img_rotate"}}' src='../../img/mine-detail.png' style='width:18rpx;height:30rpx;'></image>
+        </view>
+        <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*101):0}}rpx;'>
+          <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}} </text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <picker class='time' mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class=" list-title list-time-title weui-cell__bd">生日</view>
+      <view class="list-text list-text-time weui-cell__ft">
+        <view class="picker">
+          {{birthday}}
+        </view>
+       
+        <image class='list-icon list-icon-time' src='../../img/mine-detail.png'></image>
+      </view>
+    </picker>
+  </navigator>
+  <view bindtap='handleDesc' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class=" list-title weui-cell__bd">个人简介</view>
+    <view class="list-text weui-cell__ft">
+      {{user.description}}
+      <image class='list-icon' src='../../img/mine-detail.png'></image>
+    </view>
+  </view>
+</view>
+
+<button class="proposal-btn " bindtap='saveInfo'>提交</button>

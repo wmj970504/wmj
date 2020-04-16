@@ -1,0 +1,245 @@
+<!--pages/postdetail/postdetail.wxml-->
+
+<view class=" dynamic {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <navigator url='../personal -center/personal -center?user_id={{list.user_id}}' class="cu-avatar round lg" style="background-image:url({{list.avatar}});"></navigator>
+        <view class="content flex-sub">
+          <view >
+            <view class=' '>{{list.user_name}} </view>
+            <view class="floor-icon cu-tag tag-sm line-green">{{list.grade_name}}</view>
+
+            <view class="floor-icon cu-tag tag-sm line-blue">{{list.category_text}}</view>
+
+          </view>
+          <view class="text-gray text-sm flex justify-between">
+            {{list.description}}
+          </view>
+        </view>
+
+        <view class="floor-btn margin-tb-sm text-center">
+          <button class="f-btn cu-btn btn-sm round  button-hover {{status ? 'line-yellow' : 'line-gray'}}" bindtap="showicon" data-id="{{list.user_id}}"> {{attention}} </button>
+        </view>
+      </view>
+    </view>
+    <view class='post-all'>
+      <view class='post-title'>
+      <view style='font-weight:700'>{{list.title}}</view>
+        
+        <view class='title-detail'>
+          <view>
+            <text class='title-time'>{{list.add_time_text}}</text>
+            <view class="floor-icon cu-tag tag-sm line-blue">{{list.category_text}}</view>
+          </view>
+
+          <view class='detail-icon'>
+            <view class='icon-part'>
+              <image class='icon-img' src='../../img/watch.png'></image>{{list.view}}
+            </view>
+            <navigator url='../report/report?id={{list.id}}' class='icon-part1'>
+              <image class='icon-img' src='../../img/report.png'></image>举报
+            </navigator>
+          </view>
+        </view>
+
+      </view>
+      <view class="post-detail text-content" wx:for="{{list.content}}" wx:key="id">
+        <view wx:if="{{item.type == 'txt'}}" style='text-indent:2em'><text > {{item.content}}</text> </view>
+        <image wx:if="{{item.type == 'img'}}" src="{{item.url}}" class='w-100 ' mode='widthFix'></image>
+        <video wx:if="{{item.type == 'video'}}" src="{{item.url}}" class='w-100 '  mode='widthFix' ></video>
+        <!-- <rich-text nodes="{{list.content}}"></rich-text> -->
+      </view>
+      <!-- <view wx:if='{{list.gallery_arr[0]}}'>
+        <image class='detail-img' src='{{list.gallery_arr[0]}}'></image>
+      </view> -->
+    </view>
+    <view style='margin:0 20rpx;font-size:22rpx;color:gray;border-bottom:2rpx solid #999'>来源:{{list.from}}</view>
+    <view style='padding:0 20rpx;font-size:22rpx;color:gray;'>声明:文章、图片版权归属原作者及原出处所有。文章仅代表作者观点。若涉及侵权，请及时联系我们删除。</view>
+    <!-- evaluate -->
+    <view class="cu-list menu-avatar comment solids-top">
+      <!-- 评论总条数 -->
+      <view class='comment-titleall' style="display:{{evaluate_list.count>0?'block':'none'}}">
+        <view class='comment-title'>
+          <text class='comment-left'>{{evaluate_list.count}}条回复</text>
+          <view class='comment-right'>
+            <image class='hotest' src='../../img/hotest.png'></image>
+            <text class='hotest-text'>最热</text>
+          </view>
+        </view>
+      </view>
+      <view class="comment-all cu-item" wx:for="{{evaluate_list.list}}" wx:key="{{index}}">
+        <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="cu-avatar round" style="background-image:url({{item.avatar}});"></navigator>
+        <view class="content">
+          <view class="commenter text-grey">{{item.user_name}}</view>
+          <view class="commenter-text text-gray text-content text-df">
+            {{item.content}}。
+          </view>
+          <view class="commented padding-sm radius margin-top-sm text-sm" style="display:{{item.discuss_list.length>0?'block':'none'}}">
+            <!-- 评论当大于两条时只显示一条显示查看更多回复 -->
+            <view class="flex" wx:for="{{item.discuss_list}}" bindtap="showModal" data-target="commentbottom">
+
+              <view class='commented-commenter'>{{item.reply_user_name==""?item.user_name:item.user_name+" 回复 "+item.reply_user_name}}：</view>
+              <view class="flex-sub">{{item.content}}</view>
+            </view>
+            <!-- 更多回复 -->
+            <view wx:if="{{item.Reply==0?true:false}}">
+              <navigator url='../more/more?user_id={{item.user_id}}&index={{index}}&id={{item.id}}' class='more'>查看更多回复</navigator>
+            </view>
+
+          </view>
+
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">{{item.add_time_text}}</view>
+            <view>
+              <text class="text-md cuIcon-messagefill text-gray" style='font-size:32rpx' bindtap="showModal" data-target="commentbottom" data-type="small" data-id="{{item.id}}">{{item.discuss_count}}</text>
+              <text bindtap="links" data-index='{{index}}' data-id="{{item.id}}" class="text-md cuIcon-appreciatefill text-red margin-left-sm" style="color:{{item.is_stared==0?'#666':'red'}};font-size:36rpx">{{item.stars_count}}</text>
+              <text class='delete margin-left-sm' wx:if="{{userinfo.id == item.user_id}}" bindtap='deleteComment' data-id="{{item.id}}" data-index="{{index}}">删除</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+
+      <!-- <view class="comment-all cu-item">
+        <navigator url='../personal -center/personal -center' class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></navigator>
+        <view class="content">
+          <view class="commenter text-grey">凯尔</view>
+          <view class="commenter-text text-gray text-content text-df">
+            妹妹，如果不是为了飞翔，我们要这翅膀有什么用?
+          </view>
+          <view class="commented bg-grey padding-sm radius margin-top-sm  text-sm">
+            <view class="flex">
+              <view class='commented-commenter'>莫甘娜：</view>
+              <view class="flex-sub">如果不能立足于大地，要这双脚又有何用?</view>
+            </view>
+						<view>
+								<navigator url='../more/more' class='more'>查看更多回复</navigator>
+						</view>	
+          </view>
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">2019-05-06 08:33</view>
+            <view>
+							<text class="text-md cuIcon-messagefill text-gray" bindinput='bindblur'  bindtap="showModal" data-target="commentbottom"></text>
+              <text class="text-md cuIcon-appreciate text-gray margin-left-sm"></text>
+								<text class='delete margin-left-sm'>删除</text>
+            </view>
+          </view>
+        </view>
+      </view> -->
+    </view>
+    <!--  -->
+  </view>
+</view>
+
+
+
+<view class='footer'>
+  <view class='footer-main' bindtap='changeimg' data-id="{{list.id}}">
+    <image class='footer-img' src="{{list.is_stared ? '../../img/good-yellow.png' : '../../img/good.png'}}" ></image>
+    <text class='footer-text'>点赞</text>
+  </view>
+  <view class='footer-main' bindtap="showModal" data-target="commentbottom">
+    <image class='footer-img' src='../../img/comment.png'></image>
+    <text class='footer-text'>评论</text>
+  </view>
+  <view class='footer-main' bindtap='collection_add' data-id="{{list.id}}">
+    <image class='footer-img' src='{{list.is_favorite ? "../../img/collection.png" : "../../img/collection_default.png"}}' ></image>
+    <text class='footer-text'>收藏</text>
+  </view>
+  <view class='footer-main' bindtap="showModal" data-target="sharebottom">
+    <image class='footer-img' src='../../img/share.png'></image>
+    <text class='footer-text'>分享</text>
+  </view>
+</view>
+
+<!-- <view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-orange "></text> 底部窗口
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow">Bottom</button>
+  </view>
+</view> -->
+<view class="cu-modal bottom-modal {{modalName =='commentbottom'?'show':''}}" bindtap="hideModal">
+  <view class="popup-main cu-dialog" style='z-index:100'>
+    <view class="popup-detail" catchtap >
+      <!-- <input class='popup' placeholder='说几句吧~' bindinput='comment_text' value='{{comment_text}}'></input> -->
+      <textarea class='popup' maxlength="100000" placeholder='说几句吧~' bindinput='comment_text' value='{{comment_text}}'></textarea>
+      
+      <text class='popup-text' bindtap='publish_common' data-id="{{list.id}}" data-type="{{type}}" data-cid="{{cid}}">发布</text>
+    </view>
+  </view>
+</view>
+
+
+
+<view class="cu-modal bottom-modal {{modalName=='sharebottom'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="share-popup cu-bar">
+      <text class='share-text'>分享到</text>
+      <view class="share-top">
+        <view class='share-QR'>
+          <view class='QR-wx' bindtap="showModal" data-target="sharewxfirend">
+            <image class='QR-img' src='../../img/wechat_frand.png'></image>
+            <text class='QR-text'>微信朋友圈</text>
+          </view>
+        </view>
+        <view class='share-QR'>
+          <view class='QR-wxfriend'>
+            <button open-type="share">
+              <image class='QR-img' src='../../img/wx.png'></image>
+            </button>
+            <text class='wxfriend-text'>微信</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <button class="sharebottom action bg-white" bindtap="hideModal">
+      <text class='bottom-text'>取消</text>
+    </button>
+  </view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='sharewxfirend'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="share-popup share-firend cu-bar" style='justify-content:flex-start;'>
+      <button class='sharebutton' bindtap="hideModal">
+        <text class='sharewxfirend-text'>取消</text>
+      </button>
+      <view class='firend-top canvas'>
+      <canvas  canvas-id="shareCanvas"  style="width:600rpx;height:700rpx;background-color:#ffffff;"></canvas>
+      </view>
+      <!-- <view class="firend-top">
+        <image class='firend-share' src='../../img/wx-share.png'></image>
+        <view class='share-detail'>
+          <view class='detail-top'>
+            <view class="detail-title">
+              你见过哪些父母惊艳到你的教育 方式？一起来说说，你的经历21321321321321
+            </view>
+          </view>
+          <view class='detail-bottom'>
+            <view class='bottom-left'>
+              <image class='bottom-QR' src='../../img/postdetail-QR.png'></image>
+            </view>
+            <view class='bottom-right'>
+              <view class='bottom-right-top'>
+                <text class='invite'>您的好友</text>
+                <text class='reading'>正在阅读这篇文章</text>
+              </view>
+              <view class='bottom-right-bottom'>
+                <text class='reading'>长按小程序码，进入</text>
+                <text class='reading education'>教育微讯  </text>
+                <text class='reading'>阅读全文</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view> -->
+    </view>
+    <button class="last-buttom sharebottom action bg-white"  bindtap='save_to_album'>
+      <text class='share-button bottom-text'>保存</text>
+    </button>
+  </view>
+</view>

@@ -1,0 +1,62 @@
+/* pages/modifyinghead/modifyinghead.wxss */
+
+.modifying-container
+{
+		width: 100%;
+		text-align: center;
+}
+
+.head-img
+{
+		width: 220rpx;
+		height: 220rpx;
+		margin-top:98rpx;
+}
+
+.icon-img
+{
+		width: 40rpx;
+		height: 37rpx;
+		position: relative;
+		top:6rpx;
+}
+
+.header-icons
+{
+		margin-top:123rpx;
+}
+
+.icon-text
+{
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(0,0,0,1);
+		margin-left: 15rpx;
+	}
+
+	.modifyinghead-btn
+{
+		width: 90%;
+		height: 74rpx;
+		background-color: #1FC987;
+		color: white;
+		border-radius:37rpx;
+		margin-top: 221rpx;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+}
+
+.modifyinghead-btn2
+{
+		width: 90%;
+		height: 74rpx;
+		background-color: #fff;
+		color: #999999;
+		border-radius:37rpx;
+		margin-top: 30rpx;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+}

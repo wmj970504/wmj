@@ -1,0 +1,24 @@
+/* pages/score-detail/score-detail.wxss */
+
+.top-nav:hover,  .top-nav.active
+{
+		border-bottom: 1px solid #1FC987;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:bold;
+		color:rgba(0,0,0,1);
+}
+
+.detail-main
+{
+		width: 100%;
+		margin: auto;
+		background-color: #fff;
+		margin-top:30rpx;
+}
+
+.info-part
+{
+		height: 88rpx;
+		text-align: center;
+}

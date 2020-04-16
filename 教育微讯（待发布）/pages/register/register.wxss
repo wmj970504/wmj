@@ -1,0 +1,124 @@
+/* pages/register/register.wxss */
+
+page{
+		background-color:#fff;
+}
+
+.cu-form-group+.cu-form-group
+{
+	border:none;
+	border-bottom: 1px solid #DDDDDD;
+
+}
+
+.cu-form-group
+{
+		border-bottom: 1px solid #DDDDDD;
+}
+
+.bg-green
+{
+		background-color: #1FC987;
+		width: 186rpx;
+		border-radius: 32rpx;
+}
+
+.login-logo
+{
+		text-align: center;
+		margin-top: 83rpx;
+}
+
+.logo-img
+{
+		width: 154rpx;
+		height: 154rpx;
+}
+
+.login-container
+{
+		width: 90%;
+		margin: auto;
+		margin-top:80rpx;
+}
+
+.attend-img
+{
+		width: 24rpx;
+		height: 24rpx;
+		margin-left: 47rpx;
+		position: relative;
+		top:7rpx;
+}
+
+.title-icon
+{
+		width: 30rpx;
+		height: 42rpx;
+}
+
+.login-attend
+{
+	margin-top:30rpx;
+		text-align: center;
+		font-size:24rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(153,153,153,1);
+		display: flex;
+		flex-direction: row;
+}
+
+.confirm
+{
+		width: 90%;
+		height:74rpx;
+		margin-top: 47rpx;
+		background:rgba(31,201,135,1);
+		border-radius:37rpx;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(255,255,255,1);
+}
+
+.login-help
+{
+		width: 90%;
+		margin: auto;
+		margin-top:40rpx;
+}
+
+.register
+{
+	font-size:24rpx;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:#333333;
+}
+
+.forget
+{
+	display: inline-block;
+	font-size:24rpx;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(3,137,249,1);
+}
+
+.title-img
+{
+		width: 40rpx;
+		height: 40rpx;
+		margin-top:10rpx;
+}
+
+.attend-info
+{
+		font-size: 24rpx;
+}
+
+.info-agree
+{
+		margin-left:20rpx;
+}

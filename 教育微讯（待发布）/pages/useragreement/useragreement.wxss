@@ -1,0 +1,30 @@
+/* pages/useragreement/useragreement.wxss */
+
+page{
+		background-color: #fff;
+}
+
+.useragreement-container
+{
+		width: 90%;
+		margin: auto;
+}
+
+.useragreement-title
+{
+		margin-top: 20rpx;
+		font-size:36rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:bold;
+		color:rgba(51,51,51,1);
+		text-align: center;
+}
+
+.useragreement-info
+{
+		margin-top:55rpx;
+		font-size:24rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(0,0,0,1);
+}

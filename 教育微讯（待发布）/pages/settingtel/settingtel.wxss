@@ -1,0 +1,51 @@
+/* pages/settingtel/settingtel.wxss */
+.bg-green
+{
+		background-color: #1FC987;
+		width: 180rpx;
+		border-radius: 30px;
+}
+
+.old-num
+{
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(102,102,102,1);
+}
+
+.cu-form-group
+{
+		display: flex;
+		flex-direction: row;
+		justify-content: left;
+}
+
+.title
+{
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(0,0,0,1);
+}
+
+.cu-btn
+{
+		font-size:24rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(255,255,255,1);
+}
+
+.save
+{
+		width: 90%;
+		height:74rpx;
+		margin-top: 390rpx;
+		background:rgba(31,201,135,1);
+		border-radius:37rpx;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(255,255,255,1);
+}

@@ -1,0 +1,158 @@
+/* pages/personaldata/personaldata.wxss */
+
+
+
+.person-img
+{
+		width: 59rpx;
+		height: 60rpx;
+		border-radius: 50%;
+		margin-bottom: -20rpx;
+}
+
+.time
+{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+}
+
+.list-icon
+{
+		width: 18rpx;
+		height: 30rpx;
+}
+
+.list-title
+{
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(0,0,0,1);
+}
+
+.list-text
+{
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(153,153,153,1);
+}
+
+.list-icon
+{
+	margin-left: 20rpx;
+}
+
+.proposal-btn
+{
+		width: 90%;
+		height: 74rpx;
+		background-color: #1FC987;
+		color: white;
+		border-radius:37rpx;
+		margin-top: 339rpx;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+}
+
+ .picker
+{
+		width: 210rpx;
+		display: inline-block;
+}
+
+.list-time-title
+{
+		display: inline-block;
+}
+
+.list-text-time
+{
+		display: inline-block;
+		margin-left:380rpx;
+}
+
+
+page{
+  background: #f3f7f7;
+}
+
+.select_box{
+  background: #fff;
+  width: 260rpx;
+  position: relative;
+}
+
+.select{
+  box-sizing: border-box;
+  width: 100%;
+  height: 28rpx;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+}
+
+.select_text{
+	
+	width: 57rpx;
+  font-size: 30rpx;
+	color: #BABABA;
+  flex: 1;
+
+}
+
+.select_img{
+
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition:transform 0.3s;
+	margin-left: 20rpx;
+}
+
+.select_img_rotate{
+
+  transform:rotate(90deg); 
+
+}
+
+.option_box{
+	border-left: 2rpx solid #DEDEDE;
+	border-right: 2rpx solid #DEDEDE;
+  position: absolute;
+  top: 40rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+	background-color: #fff;
+  transition: height 0.3s;
+	z-index:9999;
+}
+
+.option_box :first-child
+{
+		border-top:  2rpx solid #DEDEDE;
+}
+
+
+.option{
+	width: 100%;
+	height: 100rpx;
+	border-bottom:  2rpx solid #DEDEDE;
+	background-color: #fff;
+  display: block;
+  line-height: 40rpx;
+	text-align: center;
+  font-size: 30rpx;
+  padding: 30rpx;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:#BABABA;
+	box-sizing: border-box;
+}
+
+.option:hover{
+		color: #000020;
+}

@@ -1,0 +1,14 @@
+/* pages/settingpwd/settingpwd.wxss */
+
+.confirm
+{
+		width: 90%;
+		height:74rpx;
+		margin-top: 390rpx;
+		background:rgba(31,201,135,1);
+		border-radius:37rpx;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(255,255,255,1);
+}

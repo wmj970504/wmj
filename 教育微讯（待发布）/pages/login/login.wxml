@@ -1,0 +1,41 @@
+<!--pages/login/login.wxml-->
+
+<view class='login-logo'>
+			<image class='logo-img' src='../../img/logo.png'></image>
+</view>
+
+
+<view class='login-container'>
+
+	<view class="cu-form-group">
+		<view class="title">
+				<image class='title-img' src='../../img/phone.png'></image>
+		</view>
+		<input placeholder="输入您的手机号码或ID" bindinput='bindphone'></input>
+	</view>
+
+	<view class="cu-form-group">
+		<view class="title">
+				<image class='title-img' src='../../img/pwd.png'></image>
+		</view>
+		<input type="password" focus='true' placeholder="请输入密码登录" bindinput='bindPass'></input>
+	</view>
+
+	<view class="cu-form-group">
+		<view class="title">
+				<image class='title-img' src='../../img/getright.png'></image>
+		</view>
+		
+		<input placeholder="请输入验证码" bindinput='bindCodeInput'></input>
+
+		<button class="cu-btn bg-green shadow" bindtap='getCode' hidden='{{hidden}}' disabled='{{btnDisabled}}' >{{btnValue}}</button>
+	</view>
+
+	<view class='login-attend'>（注：密码或验证码登录二选一）</view>
+
+	<button class='confirm' bindtap='login'  bindgetuserinfo="bingGetUserInfo" bindtap='submitTo'>登录</button>
+	<view class='login-help'>
+				<navigator url='../register/register' class='register'>免费注册</navigator>
+				<navigator url='../forgetpwd/forgetpwd' open-type='redirect' class='forget'>忘记密码</navigator>
+	</view>
+</view>

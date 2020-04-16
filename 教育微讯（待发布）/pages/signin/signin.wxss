@@ -1,0 +1,295 @@
+/* pages/signin/signin.wxss */
+page{background-color: #FAFAFA!important}
+.cu-btn
+{
+		padding: 0;
+}
+
+.t_blue
+{
+		font-size:30rpx;
+		font-family:SimHei;
+		font-weight:400;
+		color:rgba(7,7,7,1);
+}
+
+.bg-green
+{
+		width: 120rpx;
+		height:48rpx;
+		background-color: #1FC987;
+		border-radius: 4rpx;
+		float: right;
+}
+
+.bg-grey
+{
+	width: 120rpx;
+	height:48rpx;
+	background:rgba(237,237,237,1);
+	border-radius:4rpx;
+	float: right;
+}
+
+.calendar{
+  margin: 0;
+}
+
+.beforesign
+{
+		width: 226rpx;
+		height: 226rpx;
+		border-radius: 50%;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:bold;
+		color:rgba(3,137,249,1);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+}
+
+.aftersign
+{
+		width: 226rpx;
+		height: 226rpx;
+		border-radius: 50%;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:bold;
+		color:rgba(3,137,249,1);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+}
+
+.sign-record
+{
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(51,51,51,1);
+		text-align: center;
+		margin-top:40rpx;
+}
+
+.hr
+{
+		width:168rpx;
+		height:2rpx;
+		background:rgba(238,238,238,1);
+		
+}
+
+.sign-histroy
+{
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(3,137,249,1);
+}
+
+.sign-rh
+{
+		width: 90%;
+		height: 108rpx;
+		background-color: #fff;
+		margin: auto;
+		margin-top:40rpx;
+		font-size:32rpx;
+		text-align: center;
+		font-family:SimHei;
+		font-weight:400;
+		color:rgba(31,201,135,1);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		box-shadow:0px 3px 8px 0px rgba(0, 0, 0, 0.23);
+}
+
+.time{
+	width: 90%;
+	height: 108rpx;
+	margin: auto;
+  background-color: #fff;
+	box-shadow:0px 3px 8px 0px rgba(0, 0, 0, 0.23);
+	text-align: center;
+	font-size:30rpx;
+	font-family:SimHei;
+	font-weight:400;
+	color:rgba(7,7,7,1);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.weekName{
+	background-color: #fff;
+  width: 90%;
+	height: 80rpx;
+	margin: auto;
+  display: flex;
+  padding: 16rpx 0;
+	box-shadow:0px 3px 8px 0px rgba(0, 0, 0, 0.23);
+}
+
+.weekName view{
+  flex: 1;
+  text-align: center;
+}
+.sunday,.saturday{
+  color: red;
+}
+.week{
+  width: 90%;
+	background-color: #fff;
+	margin: auto;
+	box-shadow:0px 3px 8px 0px rgba(0, 0, 0, 0.23);
+}
+.week view{
+  width: 14.2%;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  margin: 20rpx 0;
+  text-align: center;
+}
+.week view text{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+.calendarSign{
+	width: 100%;
+	height: 390rpx;
+	background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  position: absolute;
+  top: 0px
+}
+
+.sign-bottom
+{
+		width: 100%;
+		/* height: 352rpx; */
+		background-color: #fff;
+		margin-top:20rpx;
+		margin-bottom: 84rpx;
+}
+
+.info-img
+{
+		width: 36rpx;
+		height: 38rpx;
+		position: relative;
+		top:6rpx;
+}
+
+.info-part
+{
+		width: 90%;
+		height: 88rpx;
+		margin: auto;
+		border-bottom: 1px solid #DEDEDE;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+}
+
+.img-text
+{
+		margin-left:21rpx;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(0,0,0,1);
+}
+
+/* 日历 */
+.bg_transform{background-color: transparent}
+.calendar-wrapper{ border: 1px solid #ededed;
+    width:690rpx;
+    border-radius:10rpx;
+    margin:0 auto;
+    }
+.calendar-title{height: 108rpx;width: 100%;line-height: 100rpx;color: #1FC987;font-size: 32rpx}
+.calendar-style{
+  background: #F7F7F7 ;  
+  color: #000;
+}
+.calendar-box {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #F7F7F7;
+    background-image: linear-gradient(to bottom, #6295eb 0%, #586fc2 50%, #5052a4 100%);
+    box-shadow: 0px 11px 2px 1px rgba(234, 234, 229, 0.3);
+}
+
+.calendar-box .left {
+    width: 30%;
+    text-align: center;
+}
+
+.calendar-box .left .today {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;    
+    background-color: #ef7a82;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.calendar-box .left .today p {
+    font-size: 2rem;    
+}
+
+.calendar-box .left .today .monthStr {
+    font-size: 0.8rem;
+}
+
+.calendar-box .right {
+    width: 70%;
+    font-size: 12px;
+}
+
+.calendar-box .right .box {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.demo3 {
+    /* padding-top: 10px; */
+
+
+}
+
+.demo3-header {
+    font-size: 30rpx;
+    background-color: #FFF;
+    border-bottom: 1px solid #FFF;
+    color: #070707;
+    width: 100%;
+    height: 80rpx;
+    margin:0px!important;
+}
+
+.demo3-board {
+    background-color: #FFF;
+    color: #070707;
+}

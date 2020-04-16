@@ -1,0 +1,101 @@
+<view class="mine-top weui-cells_after-title">
+  <navigator url="../personal -center/personal -center?user_id={{user.id}}" class="top-list weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image class='mine-img' src="{{user.avatar}}" style="margin-right: 5px;vertical-align: middle;"></image>
+    </view>
+    <view class="mine-info weui-cell__bd">
+      <view>
+        <text class='mine-name'>{{user.user_name}}</text>
+        <view class="floor-icon cu-tag tag-sm line-green">
+          <text class='icon-text'>{{user.grade_name}}</text>
+        </view>
+      </view>
+      <view class='mine-bottom'>
+        <text class='mine-title'>{{user.description}}</text>
+      </view>
+    </view>
+    <image class='icon-img' src='../../img/mine-detail.png'></image>
+  </navigator>
+  <view class='focus-info'>
+    <navigator url='../attend/attend?user_id={{user.id}}' class='focus-part'>
+      <text class='number'>{{extra.user_fallow_count}}</text>
+      <text class='number-text'>关注数</text>
+    </navigator>
+    <navigator url='../fans/fans?user_id={{user.id}}' class='focus-part'>
+      <text class='number'>{{extra.user_fans_count}}</text>
+      <text class='number-text'>粉丝数</text>
+    </navigator>
+    <navigator url='../contribution/contribution?user_id={{user.id}}' class='focus-part'>
+      <text class='number'>{{extra.contribution}}</text>
+      <text class='number-text'>贡献值</text>
+    </navigator>
+  </view>
+</view>
+
+<view class='list-main'>
+  <navigator url="../signin/signin" class="second-list weui-cell weui-cell_access" hover-class="weui-cell_active" wx:if="{{sign_is_show == 1}}">
+    <view class="weui-cell__hd">
+      <image class='my-img' src="../../img/sign.png" style="margin-right: 5px;vertical-align: middle;"></image>
+    </view>
+    <view class="my-title weui-cell__bd">签到</view>
+    <image class='icon-img' src='../../img/mine-detail.png'></image>
+  </navigator>
+
+  <navigator url="../score/score" class="normal-list weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image class='my-img' src="../../img/myscore.png" style="margin-right: 5px;vertical-align: middle;"></image>
+    </view>
+    <view class="my-title weui-cell__bd">我的积分</view>
+    <image class='icon-img' src='../../img/mine-detail.png'></image>
+  </navigator>
+
+  <navigator url="../mypost/mypost" class="normal-list weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image class='my-img' src="../../img/mypost.png" style="margin-right: 5px;vertical-align: middle;"></image>
+    </view>
+    <view class="my-title weui-cell__bd">我的帖子</view>
+    <image class='icon-img' src='../../img/mine-detail.png'></image>
+  </navigator>
+
+  <navigator url="../myask/myask" class="normal-list weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image class='my-img' src="../../img/myask.png" style="margin-right: 5px;vertical-align: middle;"></image>
+    </view>
+    <view class="my-title weui-cell__bd">我的问答</view>
+    <image class='icon-img' src='../../img/mine-detail.png'></image>
+  </navigator>
+</view>
+
+<view class='bottom-list'>
+  <navigator url="../mycollection/mycollection" class="normal-list weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image class='my-img' src="../../img/mycollection.png" style="margin-right: 5px;vertical-align: middle;"></image>
+    </view>
+    <view class="my-title weui-cell__bd">我的收藏</view>
+    <image class='icon-img' src='../../img/mine-detail.png'></image>
+  </navigator>
+
+  <navigator url="../share/share" class="normal-list weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image class='my-img' src="../../img/myshare.png" style="margin-right: 5px;vertical-align: middle;"></image>
+    </view>
+    <view class="my-title weui-cell__bd">分享小程序</view>
+    <image class='icon-img' src='../../img/mine-detail.png'></image>
+  </navigator>
+
+  <navigator url="../proposal/proposal" class="normal-list weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image class='my-img' src="../../img/feedback.png" style="margin-right: 5px;vertical-align: middle;"></image>
+    </view>
+    <view class="my-title weui-cell__bd">建议反馈</view>
+    <image class='icon-img' src='../../img/mine-detail.png'></image>
+  </navigator>
+
+  <navigator url="../setting/setting" class="normal-list weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image class='my-img' src="../../img/myset.png" style="margin-right: 5px;vertical-align: middle;"></image>
+    </view>
+    <view class="my-title weui-cell__bd">设置</view>
+    <image class='icon-img' src='../../img/mine-detail.png'></image>
+  </navigator>
+</view>

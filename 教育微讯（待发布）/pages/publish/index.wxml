@@ -1,0 +1,172 @@
+<!-- 保存草稿  -->
+<view class="flex bg-white margin-bottom-sm solid-top" style="height:80rpx;line-height:80rpx;font-size:24rpx">
+  <view class="flex-sub text-center" bindtap='save_draft'>
+    <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/save_draft.png"></image>
+    保存草稿
+  </view>
+  <view class="flex-sub text-center" bindtap="edit_draft">
+    <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/edit_draft.png"></image>
+    编辑草稿
+  </view>
+</view>
+
+<!-- 标题 类型 分类 区域 -->
+<view class='publish-container'>
+  <view class='publish-list'>
+
+    <view class="cu-form-group list-part" style='padding:0!important'>
+      <view class="title">标题：</view>
+      <input placeholder="请填写帖子标题（6-30字）" bindinput="bindTitleInput" value='{{title}}'></input>
+    </view>
+
+    <radio-group class="block" bindchange="radioChange">
+      <view class="cu-form-group post-type list-part" style='padding:0!important'>
+        <view class="title">类型：</view>
+        <view class='flex'>
+          <label class="radio flex-sub margin-right-lg" wx:for="{{radios}}" wx:key="index">
+            <radio class="green radio margin-right-sm" value="{{item.name}}" checked="{{item.checked || item.name == type}}" style='transform:scale(0.6);' />{{item.value}}
+          </label>
+        </view>
+
+      </view>
+    </radio-group>
+
+    <view class="cu-form-group list-part" style='padding:0!important'>
+      <view class="title">分类：</view>
+      <view class="list-text" style='width:560rpx'>
+        <view class='select_box w-100'>
+          <view class='select flex' style="justify-content:space-between;height:98rpx" catchtap='selectTap'>
+            <text class='select_text'>{{selectData[index].title}}</text>
+            <image class='select_img {{show&&"select_img_rotate"}}' src='../../img/mine-detail.png' style='width:18rpx;height:30rpx;'></image>
+          </view>
+          <cover-view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*101):0}}rpx;'>
+            <cover-view class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' data-id="{{item.id}}" catchtap='optionTap'>{{item.title}}</cover-view>
+          </cover-view>
+        </view>
+      </view>
+    </view>
+
+    <view class="cu-form-group" style='border-top:none;padding:0!important'>
+      <view class="title">区域：</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{valueIndex}}" range="{{multiArray }}">
+        <view class="picker " style='text-align:left!important'>
+          {{multiArray[0][valueIndex[0]]}}，{{multiArray[1][valueIndex[1]]}}
+        </view>
+      </picker>
+    </view>
+    <!-- 来源 -->
+    <view class="cu-form-group list-part" style='padding:0!important'>
+      <view class="title">来源：</view>
+      <input placeholder="转载请填写来源" name="source" bindinput="bindSourceInput" value='{{source}}'></input>
+    </view>
+    <!-- 添加图片 -->
+    <view class="cu-form-group" style='padding:0!important;justify-content:flex-start;border-top:0rpx'>
+      <view class="title">封面图：</view>
+      <block wx:for="{{gallery_pics.length}}" wx:key="index">
+        <view class='gallery'>
+          <image class='image1' src='{{gallery_pics[index]}}' ></image>
+          <image class='image2' bindtap='del_img' data-index="{{index}}" src='/img/del_img.png' ></image>
+        </view>
+
+      </block>
+      <!-- 封面长度为3张 -->
+      <view class='gallery' wx:if="{{gallery_pics.length <3}}">
+        <image bindtap='add_img' class='image1' src='/img/upload_img.png' ></image>
+      </view>
+
+    </view>
+
+  </view>
+</view>
+
+<!-- 内容循环  -->
+
+<view class='list' style='position:relative' wx:for="{{topic_list}}" wx:key="index">
+  <!-- 文字 -->
+  <view wx:if="{{item.type == 'txt'}}">
+    <textarea cursor-spacing="50" class='proposal-text mt-15' placeholder='请输入内容....' bindinput="save_value" data-id='{{index}}' maxlength="-1" value='{{item.content}}'>
+
+    </textarea>
+    <image src='/img/del.png' style="width:30rpx;height:30rpx;position:absolute;right:30rpx; z-index:2;top:30rpx" data-id='{{index}}' bindtap='del_item'></image>
+    <view class="flex bg-white margin-bottom-sm solid-top" style="height:90rpx;line-height:90rpx">
+      <view class="flex-sub text-center" data-id='{{index}}' bindtap='event_text'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/text.png"></image>
+        文字
+      </view>
+      <view class="flex-sub text-center" bindtap='event_gallery'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/gallery.png"></image>
+        图片
+      </view>
+      <view class="flex-sub text-center" bindtap='event_video'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/video.png"></image>
+        视频
+      </view>
+      <view class="flex-sub text-center" bindtap='event_rank'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/rank.png"></image>
+        排序
+      </view>
+    </view>
+  </view>
+  <!-- 图片 -->
+  <view class='bg-white mt-15' wx:if="{{item.type == 'img'}}">
+    <view class='p-15'>
+      <image src='{{item.url}} ' style='width:500rpx;height:300rpx'></image>
+    </view>
+    <image src='/img/del.png' style="width:30rpx;height:30rpx;position:absolute;right:30rpx; z-index:2;top:30rpx" data-id='{{index}}' bindtap='del_item' mode='aspectFit'></image>
+    <view class="flex bg-white margin-bottom-sm solid-top" style="height:90rpx;line-height:90rpx">
+      <view class="flex-sub text-center" bindtap='event_text'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/text.png"></image>
+        文字
+      </view>
+      <view class="flex-sub text-center" bindtap='event_gallery'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/gallery.png"></image>
+        图片
+      </view>
+      <view class="flex-sub text-center" bindtap='event_video'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/video.png"></image>
+        视频
+      </view>
+      <view class="flex-sub text-center" bindtap='event_rank'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/rank.png"></image>
+        排序
+      </view>
+    </view>
+  </view>
+  <!-- 视频 -->
+  <view class='bg-white mt-15' wx:if="{{item.type == 'video'}}">
+    <view class='p-15'>
+      <video src='{{item.url}}' style='width:500rpx;height:300rpx'></video>
+    </view>
+    <image src='/img/del.png' style="width:30rpx;height:30rpx;position:absolute;right:30rpx; z-index:2;top:30rpx" data-id='{{index}}' bindtap='del_item'></image>
+    <view class="flex bg-white margin-bottom-sm solid-top" style="height:90rpx;line-height:90rpx">
+      <view class="flex-sub text-center" bindtap='event_text'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/text.png"></image>
+        文字
+      </view>
+      <view class="flex-sub text-center" bindtap='event_gallery'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/gallery.png"></image>
+        图片
+      </view>
+      <view class="flex-sub text-center" bindtap='event_video'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/video.png"></image>
+        视频
+      </view>
+      <view class="flex-sub text-center" bindtap='event_rank'>
+        <image style="width:30rpx;height:30rpx;vertical-align:middle" src="/img/rank.png"></image>
+        排序
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+<!-- <view>
+  <view class='push-img'>
+    <button class='find-img' type="default" bindtap="bindViewTap">添加图片</button>
+    <image class='img-detail' wx:for="{{avatarUrl}}" wx:key="unique" src="{{item}}"></image>
+  </view>
+</view> -->
+<view style='padding-bottom:40rpx'>
+  <button class='confirm' bindtap='release' disabled='{{release_btn}}'>发布</button>
+</view>

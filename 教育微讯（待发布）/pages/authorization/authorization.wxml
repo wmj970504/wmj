@@ -1,0 +1,6 @@
+<!--pages/authorization/authorization.wxml-->
+
+
+<button class='confirm' open-type="getUserInfo" bindtap='login'>获取授权</button>
+<button class='skip' open-type="switchTab" bindtap='skip'>跳过</button>
+

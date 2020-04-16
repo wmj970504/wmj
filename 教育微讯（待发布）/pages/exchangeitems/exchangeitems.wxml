@@ -1,0 +1,60 @@
+<!--pages/exchangeitems/exchangeitems.wxml-->
+
+<view class='exchange-container'>
+	<view class="exchange-floor cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="content">
+      <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content">
+						<view class='desc-title'>马克杯</view>
+				</view>
+        <view>
+          <view class="desc-num cu-tag bg-white">2000</view>
+					<text class='desc-score'>积分</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+	<view class='ex-detail-list'>
+			<view class="weui-cells ">
+				<view class="flex weui-cell">
+						<view class="flex-sub radius ex-title">当前积分账户:</view>
+							<text class="flex-twice radius">2500积分</text>
+				</view>
+
+				<view class="flex weui-cell">
+						<view class="flex-sub radius ex-title">兑换需扣除:</view>
+						<text class='flex-twice radius'>2000积分</text>
+				</view>
+
+						<view class="flex weui-cell">
+						<view class="flex-sub radius ex-title">收货人姓名:</view>
+							<input class='flex-twice radius ex-textinput' placeholder='请输入收货人姓名'></input>
+				</view>
+				<view class="flex weui-cell">
+						<view class="flex-sub radius ex-title">收货人手机:</view>
+							<input class='flex-twice radius ex-textinput' placeholder='请输入收货人手机号码'></input>
+				</view>
+				<view class="flex weui-cell">
+						<view class="flex-sub radius ex-title">收货地址:</view>
+						<view class='list-place flex-twice radius'>
+									福建省福州市大华区
+									<image class='list-icon' src='../../img/mine-detail.png'></image>
+						</view>
+				</view>
+
+				<view class="flex weui-cell">
+						<view class="flex-sub radius ex-title">详细地址:</view>
+							<input class='flex-twice radius ex-textinput' placeholder='请输入详细的收货地址'></input>
+				</view>
+		</view>
+	</view>
+
+			<view class='bottom-icon'>
+					<button class="bottom-btn cu-btn bg-green">确认兑换</button>
+			</view>
+</view>
+

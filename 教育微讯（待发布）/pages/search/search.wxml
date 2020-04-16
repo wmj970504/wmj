@@ -1,0 +1,47 @@
+<!--pages/search/search.wxml-->
+<view class="cu-bar search bg-white solid-top solid-bottom">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="请输入您想搜索的内容" confirm-type="search" bindinput='bindkeywords'></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn search-btn round bg-white" bindtap='searchdetail'>搜索</button>
+  </view>
+</view>
+
+<view class='hot-search'>
+		<view class='hot-detail'>
+					<view class='detail-title'>
+							<text class='title-text'>热门搜索</text>
+					</view>
+					<view class='detail-info' style='padding-bottom:20rpx'>
+          
+									<button class="cu-btn hot-btn bg-white" wx:for='{{hotList}}' >
+                  <navigator url="../search-detail/search-detail?keywords={{item.keywords}}">
+                  {{item.keywords}}
+                  </navigator>
+                  </button>
+          
+					</view>
+		</view>
+</view>	
+
+<view class='search-history'>
+		<view class="history-list weui-cells weui-cells_after-title">
+				<navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+						<view class="history-title weui-cell__bd">历史搜索</view>
+				</navigator>
+
+        
+				<navigator  class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{list}}">
+						<view class="list-name weui-cell__bd" bindtap='locaInfo' data-id="{{item.keywords}}" >{{item.keywords}}</view>
+						<image class='list-icon' src='../../img/search-list-close.png' bindtap='clearHistoryId' data-id="{{item.id}}" data-index="{{index}}"></image>			
+				</navigator>
+
+
+	</view>
+</view>
+
+<view class='search-bottom' bindtap='clearHistory'>
+		清空搜索历史
+</view>

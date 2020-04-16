@@ -1,0 +1,39 @@
+/* pages/aboutus/aboutus.wxss */
+page{
+		background-color: #fff;
+}
+
+.about-container
+{
+		width: 90%;
+		height: 820rpx;
+		background-color: #fff;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+}
+
+.about-img
+{
+		width: 200rpx;
+		height: 200rpx;
+		margin: auto;
+}
+
+.about-title
+{
+		font-size:36rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:bold;
+		color:rgba(51,51,51,1);
+		margin: auto;
+}
+
+.about-detail
+{
+		font-size:24rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(0,0,0,1);
+		margin: auto;
+}

@@ -1,0 +1,5 @@
+<!--pages/aboutus/aboutus.wxml-->
+
+<view class='about-container'>
+		<rich-text nodes="{{about}}"></rich-text>
+</view>

@@ -1,0 +1,101 @@
+<!--pages/exchange-detail/exchange-detail.wxml-->
+
+<view class='exchange-container'>
+	<view class="exchange-floor cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="content">
+      <image src="{{info.goods_info.cover_url}}" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content">
+						<view class='desc-title'>{{info.goods_info.title}}</view>
+							<navigator url='../commodity/commodity?id={{info.goods_info.id}}'>
+									<text class='desc-icon'>详情</text>
+							</navigator>
+				</view>
+        <view>
+          <view class="desc-num cu-tag bg-white">{{info.goods_info.integral}}</view>
+					<text class='desc-score'>积分</text>
+          <!-- <view class="desc-btn weui-cell__ft">
+										<button class="list-btn cu-btn bg-green button-hover">兑换</button>
+						</view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+	<view class='ex-detail-list'>
+			<view class="weui-cells ">
+				<view class="flex weui-cell">
+						<view class="flex-sub radius ex-title">当前积分账户:</view>
+							<text class="flex-twice radius">{{info.user_integral}}积分</text>
+				</view>
+
+				<view class="flex weui-cell">
+						<view class="flex-sub radius ex-title">兑换需扣除:</view>
+						<text class='flex-twice radius'>{{info.goods_info.integral}}积分</text>
+				</view>
+
+        <view class="flex weui-cell" wx:if="{{type == 10}}">
+						<view class="flex-sub radius ex-title">收货人姓名:</view>
+							<input class='flex-twice radius ex-textinput' placeholder='请输入收货人姓名' bindinput='bindName'></input>
+				</view>
+
+				<view class="flex weui-cell" wx:if="{{type == 10}}">
+						<view class="flex-sub radius ex-title">收货人手机:</view>
+							<input class='flex-twice radius ex-textinput' placeholder='请输入收货人手机号码' bindinput='bindphone'></input>
+				</view>
+
+        	<view class="flex weui-cell" wx:if="{{type == 20}}">
+						<view class="flex-sub radius ex-title">充值手机:</view>
+							<input class='flex-twice radius ex-textinput' placeholder='请输入充值的手机号码' bindinput='bindphone'></input>
+				</view>
+
+				<view class="flex weui-cell" wx:if="{{type == 20}}">
+						<view class="flex-sub radius ex-title">号码归属地:</view>
+						<view class='list-place flex-twice radius' bindtap='select'>
+									{{areaInfo}}
+									<image class="ex-icon" src='../../img/mine-detail.png'></image>
+						</view>
+				</view>
+
+        <view class="flex weui-cell" wx:if="{{type == 10}}">
+						<view class="flex-sub radius ex-title">收货人地址:</view>
+						<view class='list-place flex-twice radius' bindtap='select'>
+									{{areaInfo}}
+									<image class="ex-icon" src='../../img/mine-detail.png'></image>
+						</view>
+				</view>
+
+        <view class="flex weui-cell" wx:if="{{type == 10}}">
+						<view class="flex-sub radius ex-title">详细地址:</view>
+							<input class='flex-twice radius ex-textinput' placeholder='请输入详细的收货地址' bindinput='bindAddrDetail'></input>
+        </view> 
+			</view>
+			</view>
+
+         
+
+
+      <view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+        <view class='btn'>
+            <text catchtap="cityCancel">取消</text>
+            <text style="float: right" catchtap="citySure">确定</text>
+        </view>
+        <picker-view class='cont' bindchange="cityChange" value="{{value}}" wx:key="">
+            <picker-view-column>
+                <view wx:for="{{provinces}}" class="picker-item" wx:key="{{index}}">{{item.name}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{citys}}" class="picker-item" wx:key="index">{{item.name}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{areas}}" class="picker-item" wx:key="index">{{item.name}}</view>
+            </picker-view-column>
+        </picker-view>
+      </view>
+
+			<view class='bottom-icon'>
+					<button class="bottom-btn cu-btn bg-green" bindtap='changeSub' data-id="{{info.goods_info.id}}">确认兑换</button>
+			</view>
+</view>

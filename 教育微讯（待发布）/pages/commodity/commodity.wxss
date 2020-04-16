@@ -1,0 +1,25 @@
+/* pages/commodity/commodity.wxss */
+page{
+	background-color: #fff;
+}
+
+.commodity-container
+{
+		width: 100%;
+		height: 100%;
+		background-color: #fff;
+		text-align: center;
+}
+
+.commodity
+{
+		width: 90%;
+		margin: auto;
+}
+
+.commodity-img
+{
+	margin-top:15rpx;
+		width: 90%;
+		height: 395rpx;
+}

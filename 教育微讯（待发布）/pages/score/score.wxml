@@ -1,0 +1,47 @@
+<!--pages/score/score.wxml-->
+
+<view class='score-top'  >
+			<view class='top-info'>
+					<view class='score-details'>
+							<text class='detail'>{{info.total_integral}}</text>
+							<text class='score'>积分</text>					
+					</view>
+					<view class='score-btn'>
+							<navigator url='../exchange/exchange'>
+											<button class="btn-left cu-btn round line-white">积分兑换</button>
+							</navigator>
+								<navigator url='../score-detail/score-detail'>
+										<button class="btn-right cu-btn round line-white">积分明细</button>
+								</navigator>
+				
+					</view>
+			</view>
+				<view class='top-attend'>
+						<text class='attend-text'>注：积分可兑换话费、图书等商品</text>
+				</view>
+</view>
+
+<view class='score-desc'>
+		<view class='desc-title'>
+				<view class='title'>
+					<image class='score-img' src='../../img/score.png'></image>
+					<text class='img-info'>积分获取</text>
+				</view>
+		</view>
+
+			<view class="weui-cells weui-cells_after-title">
+
+            <view class="weui-cell" wx:for="{{info.list}}">
+                <view class="score-text weui-cell__bd">{{item.type_text}}：+{{item.value}}积分</view>
+                <view class="weui-cell__ft">
+										<button class="list-btn cu-btn bg-useless button-hover" wx:if="{{item.is_finish == 1}}">已完成</button>
+                    <button class="list-btn cu-btn bg-green button-hover" wx:elif="{{item.type == 30 || item.type == 40}}" bindtap='toshare'>去分享</button>
+                    <button class="list-btn cu-btn bg-green button-hover" wx:elif="{{item.type == 50}}" bindtap='toPublish'>
+                        去发布
+                    </button>
+                    <button class="list-btn cu-btn bg-green button-hover" wx:else >未完成</button>
+								</view>
+            </view>
+
+        </view>
+</view>

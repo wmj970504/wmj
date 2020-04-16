@@ -1,0 +1,16 @@
+page{
+  background-color: #fff
+}
+.imagesize{
+  text-align: center;
+}
+
+.imagesize image { 
+  width:132px;
+  height:154px;
+  margin-top:147rpx;
+  }
+
+  .btn{
+    margin-top:80px;background-color:#1FC987;color:white;width:90%;border-radius: 25px;height:37px;font-size:15px;
+  }

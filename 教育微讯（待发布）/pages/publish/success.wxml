@@ -1,0 +1,8 @@
+
+<view class='imagesize'>
+  <image src='../../img/publish_success.png'></image>
+
+  <view style='font-size:15px;margin-top:17px;'>发布成功，请等待审核</view>
+  <button class='btn' bindtap='goback'>返回</button>
+</view>
+

@@ -1,0 +1,63 @@
+<view wx:if="{{draft_list.length >0}}">
+<view class="draft_list mb-10" wx:for='{{draft_list}}'>
+
+  <view class='draft_item bg-white p-15'>
+    <view class='inline-block  text-center mr-10'>
+      <image class='avatar' src='{{item.avatar}}'></image>
+    </view>
+    <view class='inline-block w-80'>
+      <view class='flexbox '>
+
+        <view>
+          <text class='font-15 font-b mr-15'>{{item.user_name}}</text>
+          <text class='line_font'>{{item.grade_name}}</text>
+          <text class='line_font1' wx:if="{{item.category_text}}">{{item.category_text}}</text>
+
+        </view>
+        <view class=' font-12 default_color lh-17 font-b'>(草稿)</view>
+      </view>
+      <view>
+        {{item.add_time_text}}
+      </view>
+    </view>
+    <view class='bg-white mt-5 pb-10  solid-bottom '>
+      <view class=' text-df text-bold mb-5' wx:if="{{item.title}}">{{item.title}}</view>
+      <view class='text-gray ellipsis-3' wx:if="{{item.content_cut}}">{{item.content_cut}}</view>
+      <view wx:if="{{item.cover_type == 'img'}}">
+        <view wx:if="{{item.cover.length == 1}}">
+          <image style='width:690rpx;height:346rpx' src='{{item.cover[0]}}'></image>
+        </view>
+        <view wx:else>
+          <view class="weui-flex mt-10" style='flex-wrap:wrap'>
+            <block  wx:for="{{item.cover}}" wx:for-item="img_item" wx:key="index">
+            <view class="weui-flex__item">
+              <image style='width:220rpx;height:170rpx' src='{{img_item}}'></image>
+            </view>
+            </block>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{item.cover_type == 'video'}}">
+       <video style='width:690rpx;height:346rpx' src='{{item.cover[0]}}'></video> 
+      </view>
+
+    </view>
+    <view class='text-right mt-10'>
+      <view class='inline-block mr-15' bindtap='edit_draft' data-id="{{item.id}}">
+        <image src="/img/edit.png" style='width:28rpx;height:28rpx;'></image>
+        编辑
+      </view>
+      <view class='inline-block' bindtap='del_draft' data-id="{{item.id}}" data-title='{{item.title}}'>
+        <image src="/img/select_del.png" style='width:28rpx;height:28rpx;'></image>
+        删除
+      </view>
+    </view>
+  </view>
+
+</view>
+</view>
+  <view class="cu-card dynamic no-card" style='background-color:white;text-align:center;height:100vh' wx:else>
+  <image src='/img/nothing.png' style='width:360rpx;height:300rpx;margin-top:100rpx;margin-bottom:60rpx'></image>
+  <view>暂无草稿哦~</view>
+  </view>

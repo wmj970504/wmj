@@ -1,0 +1,120 @@
+<!--pages/search-detail/search-detail.wxml-->
+<view class="cu-bar search bg-white solid-top solid-bottom">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="{{keywords ? keywords : '请输入您想搜索的内容'}}" confirm-type="search"></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn search-btn round bg-white">搜索</button>
+  </view>
+</view>
+
+<view class='about-user'>
+  <view class='about-title'>
+    <text class='title-text'>相关用户</text>
+  </view>
+  <view class='search-result' wx:if="{{search_user_info != ''}}">
+
+
+    <view class="cu-item">
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="floor-img cu-avatar round lg" style="background-image:url({{search_user_info.avatar}});" bindtap='locUserInfo' data-id="{{search_user_info.id}}">
+          </view>
+          <view class="content flex-sub">
+            <view class='floor-name' style="justify-content:space-between">
+              <view>
+                <text>{{search_user_info.user_name}}</text>
+                <text class="floor-icon cu-tag tag-sm line-blue">{{search_user_info.grade_name}}</text>
+
+              </view>
+
+              <view class="floor-btn margin-tb-sm text-center">
+                <button class="{{search_user_info.is_fallow == 0? 'line-gray' : 'line-yellow'}} f-btn cu-btn btn-sm round  button-hover" bindtap='showicon' style='width:140rpx' data-id="{{search_user_info.id}}">
+                  {{isFallow[search_user_info.is_fallow]}}
+                </button>
+              </view>
+            </view>
+            <view class="text-gray text-sm flex justify-between">
+              {{search_user_info.description}}
+            </view>
+          </view>
+
+        </view>
+
+      </view>
+    </view>
+
+    <view class='check-more' wx:if="{{is_more}}">
+      <navigator url='../attend/attend?user_id={{search_user_info.id}}' class='more-text' wx:if="{{search_user_info.is_more != 0}}">查看更多</navigator>
+    </view>
+
+  </view>
+  <view class='search-result' wx:else>
+    <view class="cu-item" style='text-align:center;'>
+      暂无数据
+    </view>
+  </view>
+</view>
+
+<view class='search-info'>
+  <view class='info-title'>
+    <text class='title-text'>相关帖子</text>
+  </view>
+  <view wx:if="{{list.length>0}}">
+
+
+    <view class="cu-item" style="margin-bottom:30rpx;" wx:for="{{list}}">
+      <image class='ask' wx:if="{{item.type == 2}}" src='../../img/ask.png'></image>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+
+
+          <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="floor-img cu-avatar round lg" style="background-image:url({{item.avatar}});"></navigator>
+
+
+          <view class="content flex-sub">
+            <view class='floor-name' style="justify-content:space-between">
+              <view>
+                <text>{{item.user_name}}</text>
+                <text class="floor-icon cu-tag tag-sm line-green">{{item.grade_name}}</text>
+                <text class="floor-icon cu-tag tag-sm line-blue">{{item.category_text}}</text>
+              </view>
+
+              <view class="floor-btn margin-tb-sm text-center">
+                <button class="{{item.is_fallow == 0? 'line-gray' : 'line-yellow'}} f-btn cu-btn btn-sm round button-hover" bindtap="showicon" disabled='{{showicon}}' data-id="{{item.user_id}}" data-cid="{{item.id}}" style='width:140rpx'>
+                  {{isFallow[item.is_fallow]}}
+                </button>
+              </view>
+
+            </view>
+            <view class="text-gray text-sm flex justify-between">
+              {{item.add_time_text}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <navigator url='../postdetail/postdetail?id={{item.id}}'  class="text-content">
+        {{item.title}}
+      </navigator>
+      <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+        <view class="bg-img {{isCard?'':'only-img'}}" wx:for="{{item.cover}}" style="background-image:url({{item}});" wx:key="{{index}}">
+        </view>
+      </view>
+
+      <view class="text-gray text-md text-right padding solid-top margin">
+        <text class="card-icon cuIcon-attentionfill margin-lr-xs"></text> {{item.view}}
+        <text class="card-icon cuIcon-messagefill margin-lr-xs"></text> {{item.comment_count}}
+        <!-- <text class="card-icon cuIcon-appreciatefill margin-lr-xs"></text> {{item.star_count}} -->
+        <image class='card-icon' style="width:30rpx;height:28rpx;margin-left:10rpx;margin-right:10rpx;position:relative;top:3rpx;" src='{{item.is_stared ? good_select : good }}' bindtap='changeimg' data-id="{{item.id}}">
+        </image>{{item.star_count}}
+      </view>
+    </view>
+  </view>
+  <view class='search-result' wx:else>
+    <view class="cu-item" style='text-align:center;'>
+      暂无数据
+    </view>
+  </view>
+
+</view>

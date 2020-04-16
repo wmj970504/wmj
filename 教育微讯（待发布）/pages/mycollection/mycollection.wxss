@@ -1,0 +1,119 @@
+/* pages/mycollection/mycollection.wxss */
+
+/* .top-nav:hover,  .top-nav.active
+{
+		border-bottom: 1px solid #1FC987;
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:bold;
+		color:rgba(0,0,0,1);
+} */
+
+.floor-name
+{
+		height:45rpx;
+}
+
+.floor-icon
+{
+	margin-left:30rpx;
+	height: 30rpx;
+}
+
+.floor-btn
+{
+		width: 160rpx;
+		margin-left:160rpx;
+		height: 48rpx;
+}
+
+.foucs-btn
+{
+	font-size:20rpx;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+}
+
+.f-btn
+{
+		width: 160rpx;
+}
+
+.icon-img
+{
+		width:28rpx;
+		height:20rpx;
+}
+
+.card-icon
+{
+		width: 28rpx;
+		height:20rpx;
+}
+
+.icon-text
+{
+	width: 21rpx;
+	height: 17rpx;
+}
+
+.floor-text
+{
+		font-size:24rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(255,106,0,1);
+}
+
+.ask-png
+{
+		width: 65rpx;
+		height: 66rpx;
+		float: right;
+}
+
+.floor-text
+{
+	margin-left:140rpx;
+}
+
+.floor-draft
+{
+		font-size:24rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(255,106,0,1);
+		margin-left: 140rpx;
+}
+
+.floor-part
+{
+		position: relative;
+		top:30rpx;
+}
+
+.hid{
+  display: none;
+}
+
+.top-nav {
+  line-height: 20rpx
+}
+.tabText{
+  display:inline-block;
+  padding:20rpx 0;
+}
+.tabstyle{
+  border-bottom:1px solid #0389F9;
+}
+.date{
+  padding: 20rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  background: #f1f1f1
+}
+
+.text-content{
+  padding: 20rpx
+}

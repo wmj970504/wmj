@@ -1,0 +1,26 @@
+/* pages/nothing/nothing.wxss */
+page{
+		background-color: #fff;
+}
+
+.img-detail
+{
+		width: 361rpx;
+		height: 309rpx;
+}
+
+.nothing-img
+{
+		text-align: center;
+		margin-top:114rpx;
+}
+
+.bottom-info
+{
+		margin-top: 93rpx;
+		text-align: center;
+		font-size:24rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(153,153,153,1);
+}

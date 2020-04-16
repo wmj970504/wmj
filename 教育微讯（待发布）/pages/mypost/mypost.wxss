@@ -1,0 +1,119 @@
+/* pages/mypost/mypost.wxss */
+
+.top-nav:hover, .top-nav.active {
+  border-bottom: 1px solid #1fc987;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+}
+
+.floor-name {
+  height: 45rpx;
+}
+
+.floor-icon {
+  margin-left: 30rpx;
+  height: 30rpx;
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  vertical-align: center;
+}
+
+.floor-btn {
+  width: 160rpx;
+  margin-left: 160rpx;
+  height: 48rpx;
+}
+
+.foucs-btn {
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+
+.f-btn {
+  width: 160rpx;
+}
+
+.icon-img {
+  width: 28rpx;
+  height: 20rpx;
+}
+
+.card-icon {
+  width: 28rpx;
+  height: 20rpx;
+}
+
+.icon-text {
+  width: 21rpx;
+  height: 17rpx;
+}
+
+.floor-text {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 106, 0, 1);
+}
+
+.ask-png {
+  width: 65rpx;
+  height: 66rpx;
+  float: right;
+}
+
+.floor-text {
+  margin-left: 140rpx;
+}
+
+.floor-draft {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(31, 201, 135, 1);
+  margin-left: 20rpx;
+}
+
+.floor-part {
+  position: relative;
+  top: 30rpx;
+}
+
+.text-content {
+  padding: 0 30rpx 0;
+  max-height: 6.4em;
+  overflow: hidden;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 缺省 */
+page{
+		background-color: #fff;
+}
+
+.img-detail
+{
+		width: 361rpx;
+		height: 309rpx;
+}
+
+.nothing-img
+{
+		text-align: center;
+		margin-top:114rpx;
+}
+
+.bottom-info
+{
+		margin-top: 93rpx;
+		text-align: center;
+		font-size:24rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(153,153,153,1);
+}

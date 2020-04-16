@@ -1,0 +1,74 @@
+
+<view class="weui-cells weui-cells_after-title">
+		<navigator bindtap="location_to_system" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+				<view class="weui-cell__hd">
+						<image src="../../img/system-notification.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+				</view>
+				<view class="weui-cell__bd">系统通知</view>
+				<view class="weui-cell__ft {{data_count.system ? 'attend' : ''}}">{{data_count.system ? data_count.system : ''}}</view>
+				<image class='icon-img' src='../../img/mine-detail.png'></image>
+		</navigator>
+		
+		<navigator bindtap='location_to_shenhe' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+				<view class="weui-cell__hd">
+						<image src="../../img/examine.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+				</view>
+				<view class="weui-cell__bd">审核通知</view>
+				<view class="weui-cell__ft {{data_count.audit ? 'attend' : ''}}">{{data_count.audit ? data_count.audit : ''}}</view>
+				<image class='icon-img' src='../../img/mine-detail.png'></image>
+		</navigator>
+
+		<navigator bindtap='location_to_punlun' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+				<view class="weui-cell__hd">
+						<image src="../../img/Reply.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+				</view>
+				<view class="weui-cell__bd">评论/回复</view>
+				<view class="weui-cell__ft {{data_count.comments ? 'attend' : ''}}">{{data_count.comments ? data_count.comments : ''}}</view>
+				<image class='icon-img' src='../../img/mine-detail.png'></image>
+		</navigator>
+
+		<navigator bindtap='location_go_top' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+				<view class="weui-cell__hd">
+						<image src="../../img/Topping.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+				</view>
+				<view class="weui-cell__bd">被置顶</view>
+        <view class="weui-cell__ft {{data_count.is_top ? 'attend' : ''}}">{{data_count.is_top ? data_count.is_top : ''}}</view>
+				<image class='icon-img' src='../../img/mine-detail.png'>{{data_count.is_top}}</image>
+		</navigator>
+
+		<navigator bindtap='location_fabulous' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+				<view class="weui-cell__hd">
+						<image src="../../img/good41.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+				</view>
+				<view class="weui-cell__bd">点赞</view>
+        <view class="weui-cell__ft {{data_count.stars ? 'attend' : ''}}">{{data_count.stars ? data_count.stars : ''}}</view>
+				<image class='icon-img' src='../../img/mine-detail.png'></image>
+		</navigator>
+
+		<navigator bindtap='location_share' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+				<view class="weui-cell__hd">
+						<image src="../../img/share-news.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+				</view>
+				<view class="weui-cell__bd">分享</view>
+        <view class="weui-cell__ft {{data_count.share ? 'attend' : ''}}">{{data_count.share ? data_count.share : ''}}</view>
+				<image class='icon-img' src='../../img/mine-detail.png'></image>
+		</navigator>
+
+		<navigator bindtap='location_collection' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+				<view class="weui-cell__hd">
+						<image src="../../img/mycollection.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+				</view>
+				<view class="weui-cell__bd">收藏</view>
+        <view class="weui-cell__ft {{data_count.favorite ? 'attend' : ''}}">{{data_count.favorite ? data_count.favorite : ''}}</view>
+				<image class='icon-img' src='../../img/mine-detail.png'></image>
+		</navigator>
+
+		<navigator bindtap='location_del' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+				<view class="weui-cell__hd">
+						<image src="../../img/delete.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+				</view>
+				<view class="weui-cell__bd">删除</view>
+        <view class="weui-cell__ft {{data_count.delete ? 'attend' : ''}}">{{data_count.delete ? data_count.delete : ''}}</view>
+				<image class='icon-img' src='../../img/mine-detail.png'></image>
+		</navigator>
+	</view>

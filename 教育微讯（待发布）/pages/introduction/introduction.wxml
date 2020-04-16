@@ -1,0 +1,11 @@
+<!--pages/introduction/introduction.wxml-->
+
+<view class='introduction-container'>
+  <view class='introduction-title'>个人简介：</view>
+  <textarea class='introduction-detail' placeholder='介绍一下你自己吧... ' minlength="{{min}}" maxlength="{{max}}" bindinput="bindTextarea" value='{{content}}'>
+    <text class='bottom-text'>{{currentWordNumber||previousWordNumber}}/{{max}}</text>
+  </textarea>
+
+  <button class="modifyinghead-btn" bindtap='handleSave'>保存</button>
+  <button class="cu-btn lg bg-white modifyinghead-btn2" bindtap='handleCancel'>取消</button>
+</view>

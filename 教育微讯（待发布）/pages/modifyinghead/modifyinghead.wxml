@@ -1,0 +1,20 @@
+<!--pages/modifyinghead/modifyinghead.wxml-->
+
+<view class='modifying-container'>
+		<image class='head-img' src='{{img}}'></image>
+
+		<view class='flex header-icons'>
+      <view class="header-icon flex-sub radius" bindtap='pic'>
+						<image class='icon-img' src='../../img/photograph.png'></image>
+						<text class='icon-text'>拍照上传</text>
+			</view>
+      <view class="header-icon flex-sub radius" bindtap='pic'>
+						<image class='icon-img' src='../../img/gallery.png'></image>
+						<text class='icon-text'>图库上传</text>
+			</view>
+		</view>
+</view>
+
+		<button class="modifyinghead-btn" bindtap='saveAvatar'>保存</button>
+		<button class="modifyinghead-btn2">取消</button>
+

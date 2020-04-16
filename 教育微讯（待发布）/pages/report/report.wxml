@@ -1,0 +1,73 @@
+<!--pages/report/report.wxml-->
+
+<view class='complaint-container'>
+
+  <view class="cu-list menu-avatar">
+    <view class="cu-item">
+      <navigator url='../personal -center/personal -center?user_id={{info.user_id}}' class="cu-avatar round lg" style="background-image:url({{info.avatar}});"></navigator>
+      <view class="content flex-sub">
+        <view>
+          <view>{{info.user_name}}</view>
+          <view class="floor-icon cu-tag tag-sm line-green" style='height:30rpx;margin-left:20rpx'>{{info.grade_name}}</view>
+          <view class="floor-icon cu-tag tag-sm line-blue" style='height:30rpx;'>{{info.category_text}}</view>
+        </view>
+
+        <view class="text-gray text-sm flex justify-between">
+          {{info.description}}
+        </view>
+      </view>
+
+
+    </view>
+  </view>
+  <view style='width:90%;margin:0 auto;'>{{info.title}}</view>
+  <view class='person-detail' style='width:90%;margin:0 auto;'>
+    <view class='pdetail-info'>
+      <a class="article-content">
+        <image wx:for="{{info.cover}}" style='width:210rpx;height:160rpx;margin-left:10rpx;' src='{{item}}'></image>
+      </a>
+    </view>
+  </view>
+
+  <!-- <view class='comment-person'>
+				<image class='person-img' src='{{info.avatar}}'></image>
+				<text class='person-name'>{{info.title}}</text>
+				<view style=' width:40px;height:15px;text-align: center;font-size:10px;color: #E69D27;border:1px solid #E69D27;line-height:25rpx;' class='t1'>{{info.category_text}}</view>
+				<text class='floor'>{{info.add_time_text}}</text>
+			</view>
+			<view class='person-detail'>
+					<rich-text nodes="{{info.content}}"></rich-text>
+					<view class='pdetail-info'>
+							<a class="article-content">
+								<image wx:for="{{info.gallery_arr}}" style='width:220rpx;height:160rpx;margin-left:10rpx;' src='{{item}}'></image>
+						  </a>
+					</view>
+				</view> -->
+
+
+  <view class='complaint-detail'>
+    <view class='complaint-reason'>
+      <text>投诉原因：</text>
+    </view>
+    <textarea class='reason-detail' placeholder='请输入原因~' bindinput='wroning_text'></textarea>
+    <!-- 图证 -->
+    <view class='complaint-reason'>
+      <text>图证：</text>
+    </view>
+    <view style='display:flex;justify-content:flex-start;flex-wrap:wrap;margin-bottom:80rpx'>
+      <block wx:for="{{complain_imgs.length}}" wx:key="index">
+        <view class='gallery'>
+          <image class='image1' src='{{complain_imgs[index]}}'></image>
+          <image class='image2' bindtap='del_img' data-index="{{index}}" src='/img/del_img.png'></image>
+        </view>
+
+      </block>
+      <!-- 封面长度为3张 -->
+      <view class='gallery' wx:if="{{complain_imgs.length <6}}">
+        <image bindtap='add_img' class='image1' src='/img/upload_img.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <button class="complaint-btn weui-btn" bindtap='submits' disabled='{{is_submit}}' data-id="{{info.id}}">提交</button>
+</view>

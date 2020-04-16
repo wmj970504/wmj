@@ -1,0 +1,200 @@
+<!--pages/mypost/myask.wxml-->
+
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="top-nav cu-item flex-sub {{TabCur==0?'active':''}}" bindtap="tabSelect" data-id="{{0}}">
+      全部
+    </view>
+    <view class="top-nav cu-item flex-sub {{TabCur==30?'active':''}}" bindtap="tabSelect" data-id="{{30}}">
+      已发表
+    </view>
+    <view class="top-nav cu-item flex-sub {{TabCur==40?'active':''}}" bindtap="tabSelect" data-id="{{40}}">
+      未通过
+    </view>
+    <view class="top-nav cu-item flex-sub {{TabCur==10?'active':''}}" bindtap="tabSelect" data-id="{{10}}">
+      草稿
+    </view>
+  </view>
+</scroll-view>
+
+<block wx:if="{{TabCur==0}}">
+  <view class="cu-card dynamic no-card">
+    <view class="cu-item" style="margin-bottom:30rpx;" wx:for="{{askList}}" wx:key="id">
+      <image class='ask-img' src='../../img/ask.png'></image>
+      <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="cu-list menu-avatar">
+        <view class="cu-item">
+          <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="floor-img cu-avatar round lg" style="background-image:url({{item.avatar}});"></navigator>
+          <view class="content flex-sub">
+            <view class='floor-name'>
+            <text class='ellipsis-1 ' style='width:200rpx'> {{item.user_name}}</text>
+              <view class="tag-list">
+                <view class="padding-xs ">
+                  <view class="floor-icon cu-tag tag-sm line-green">{{item.grade_name}}</view>
+                  <view class="floor-icon cu-tag tag-sm line-blue">{{item.category_text}}</view>
+                </view>
+              </view>
+              <view class="floor-draft margin-tb-sm text-center" wx:if="{{item.status==10}}">(草稿)</view>
+              <view class="floor-text margin-tb-sm text-center" wx:if="{{item.status==40}}">(未通过)</view>
+            </view>
+            <view class="text-gray text-sm flex justify-between">
+              {{item.add_time_text}}
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <navigator url='../postdetail/postdetail?id={{item.id}}'>
+        <view class="text-content">
+          {{item.title}}
+        </view>
+        <view class="grid flex-sub padding-lr {{item.cover.length > 1 ? 'col-3 grid-square' : 'col-1'}}">
+          <view class="bg-img {{item.cover.length > 1 ? '' : 'only-img'}}" style="background-image:url({{itemCover}});" wx:for="{{item.cover}}" wx:for-item="itemCover" wx:key="index">
+          </view>
+        </view>
+      </navigator>
+      <view class="text-gray text-md text-right padding solid-top margin">
+        <text class="card-icon cuIcon-attentionfill margin-lr-xs" wx:if="{{item.status==30}}">{{item.view}}</text>
+        <navigator url='../more/more' style='display:inline-block' wx:if="{{item.status==30}}">
+          <text class="card-icon cuIcon-messagefill margin-lr-xs">{{item.comment_count}}</text>
+        </navigator>
+        <text class="card-icon cuIcon-appreciatefill margin-lr-xs" wx:if="{{item.status==30}}"> {{item.star_count}}</text>
+        <text class='cuIcon-write lg text-gray'  bindtap="edit_draft" data-id="{{item.id}}" wx:if="{{item.status!=30}}">编辑</text>
+        <text class='cuIcon-delete lg text-gray margin-lr-xs'  bindtap='del_draft' data-id="{{item.id}}" data-title="{{item.title}}">删除</text>
+      </view>
+    </view>
+  </view>
+</block>
+
+<block wx:elif="{{TabCur==30}}">
+  <view class="cu-card dynamic no-card">
+    <view class="cu-item" style="margin-bottom:30rpx;" wx:for="{{askList_30}}" wx:key="id">
+      <image class='ask-img' src='../../img/ask.png'></image>
+      <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="cu-list menu-avatar">
+        <view class="cu-item">
+          <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="floor-img cu-avatar round lg" style="background-image:url({{item.avatar}});"></navigator>
+          <view class="content flex-sub">
+            <view class='floor-name'>
+            <text class='ellipsis-1 ' style='width:200rpx'> {{item.user_name}}</text>
+              <view class="tag-list">
+                <view class="padding-xs ">
+                  <view class="floor-icon cu-tag tag-sm line-green">{{item.grade_name}}</view>
+                  <view class="floor-icon cu-tag tag-sm line-blue">{{item.category_text}}</view>
+                </view>
+              </view>
+            </view>
+            <view class="text-gray text-sm flex justify-between">
+              {{item.add_time_text}}
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <navigator url='../postdetail/postdetail?id={{item.id}}'>
+        <view class="text-content">
+          {{item.title}}
+        </view>
+        <view class="grid flex-sub padding-lr {{item.cover.length > 1 ? 'col-3 grid-square' : 'col-1'}}">
+          <view class="bg-img {{item.cover.length > 1 ? '' : 'only-img'}}" style="background-image:url({{itemCover}});" wx:for="{{item.cover}}" wx:for-item="itemCover" wx:key="index">
+          </view>
+        </view>
+      </navigator>
+      <view class="text-gray text-md text-right padding solid-top margin">
+        <text class="card-icon cuIcon-attentionfill margin-lr-xs">{{item.view}}</text>
+        <navigator url='../more/more' style='display:inline-block'>
+          <text class="card-icon cuIcon-messagefill margin-lr-xs">{{item.comment_count}}</text>
+        </navigator>
+        <text class="card-icon cuIcon-appreciatefill margin-lr-xs"> {{item.star_count}}</text>
+        <text class='cuIcon-delete lg text-gray margin-lr-xs' bindtap='del_draft' data-id="{{item.id}}" data-title="{{item.title}}">删除</text>
+      </view>
+    </view>
+  </view>
+</block>
+
+<block wx:elif="{{TabCur==40}}">
+  <view class="cu-card dynamic no-card">
+    <view class="cu-item" style="margin-bottom:30rpx;" wx:for="{{askList_40}}" wx:key="id">
+      <image class='ask-img' src='../../img/ask.png'></image>
+      <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="cu-list menu-avatar">
+        <view class="cu-item">
+          <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="floor-img cu-avatar round lg" style="background-image:url({{item.avatar}});"></navigator>
+          <view class="content flex-sub">
+            <view class='floor-name'>
+              <text class='ellipsis-1 ' style='width:200rpx'> {{item.user_name}}</text>
+              <view class="tag-list">
+                <view class="padding-xs ">
+                  <view class="floor-icon cu-tag tag-sm line-green">{{item.grade_name}}</view>
+                  <view class="floor-icon cu-tag tag-sm line-blue">{{item.category_text}}</view>
+                </view>
+              </view>
+              <view class="floor-draft margin-tb-sm text-center">(未通过)</view>
+            </view>
+            <view class="text-gray text-sm flex justify-between">
+              {{item.add_time_text}}
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <navigator url='../postdetail/postdetail?id={{item.id}}'>
+        <view class="text-content">
+          {{item.title}}
+        </view>
+        <view class="grid flex-sub padding-lr {{item.cover.length > 1 ? 'col-3 grid-square' : 'col-1'}}">
+          <view class="bg-img {{item.cover.length > 1 ? '' : 'only-img'}}" style="background-image:url({{itemCover}});" wx:for="{{item.cover}}" wx:for-item="itemCover" wx:key="index">
+          </view>
+        </view>
+      </navigator>
+      <view class="text-gray text-md text-right padding solid-top margin">
+        <text class='cuIcon-write lg text-gray'  bindtap="edit_draft" data-id="{{item.id}}">编辑</text>
+        <text class='cuIcon-delete lg text-gray margin-lr-xs'  bindtap='del_draft' data-id="{{item.id}}" data-title="{{item.title}}">删除</text>
+      </view>
+    </view>
+  </view>
+</block>
+
+<block wx:elif="{{TabCur==10}}">
+  <view class="cu-card dynamic no-card">
+    <view class="cu-item" style="margin-bottom:30rpx;" wx:for="{{askList_10}}" wx:key="id">
+      <image class='ask-img' src='../../img/ask.png'></image>
+      <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="cu-list menu-avatar">
+        <view class="cu-item">
+          <navigator url='../personal -center/personal -center?user_id={{item.user_id}}' class="floor-img cu-avatar round lg" style="background-image:url({{item.avatar}});"></navigator>
+          <view class="content flex-sub">
+            <view class='floor-name'>
+            <text class='ellipsis-1 ' style='width:200rpx'> {{item.user_name}}</text>
+              <view class="tag-list">
+                <view class="padding-xs ">
+                  <view class="floor-icon cu-tag tag-sm line-green">{{item.grade_name}}</view>
+                  <view class="floor-icon cu-tag tag-sm line-blue">{{item.category_text}}</view>
+                </view>
+              </view>
+              <view class="floor-draft margin-tb-sm text-center">(草稿)</view>
+            </view>
+            <view class="text-gray text-sm flex justify-between">
+              {{item.add_time_text}}
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <navigator url='../postdetail/postdetail?id={{item.id}}'>
+        <view class="text-content">
+          {{item.title}}
+        </view>
+        <view class="grid flex-sub padding-lr {{item.cover.length > 1 ? 'col-3 grid-square' : 'col-1'}}">
+          <view class="bg-img {{item.cover.length > 1 ? '' : 'only-img'}}" style="background-image:url({{itemCover}});" wx:for="{{item.cover}}" wx:for-item="itemCover" wx:key="index">
+          </view>
+        </view>
+      </navigator>
+      <view class="text-gray text-md text-right padding solid-top margin">
+        <text class='cuIcon-write lg text-gray' bindtap="edit_draft" data-id="{{item.id}}" >编辑</text>
+        <text class='cuIcon-delete lg text-gray margin-lr-xs' bindtap='del_draft' data-id="{{item.id}}" data-title="{{item.title}}">删除</text>
+      </view>
+    </view>
+  </view>
+</block>
+
+<!-- 缺省页 -->
+<view wx:if="{{is_nothing}}">
+  <view class='nothing-img'>
+    <image class='img-detail' src='../../img/nothing.png'></image>
+  </view>
+
+  <view class='bottom-info'>还没有消息哦～</view>
+</view>

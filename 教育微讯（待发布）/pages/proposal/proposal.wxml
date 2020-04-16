@@ -1,0 +1,6 @@
+<!--pages/proposal/proposal.wxml-->
+
+<textarea class='proposal-text' placeholder='请详细描述您的问题或建议...' minlength="{{min}}" maxlength="{{max}}" bindinput='bindTextarea'>
+  <text class='bottom-text'>{{currentWordNumber|0}}/{{max}}</text>
+</textarea>
+<button class="proposal-btn" bindtap='submit'>提交</button>

@@ -1,0 +1,28 @@
+<!--pages/score-detail/score-detail.wxml-->
+
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="top-nav cu-item flex-sub {{index==TabCur?'text-green cur':''}}" wx:for="{{topinfo}}" wx:key bindtap="tabSelect" data-id="{{topinfo}}" data-name="{{index}}">
+      {{item.name}}
+    </view>
+  </view>
+</scroll-view>
+
+<view class='detail-main'>
+		<view class="info-part flex margin-bottom-sm mb-sm">
+      <view class="flex-sub margin-xs radius">序号</view>
+      <view class="flex-treble margin-xs radius">日期</view>
+      <view class="flex-twice margin-xs radius">类型</view>
+			<view class="flex-twice margin-xs radius">积分</view>
+    </view>
+
+
+
+		<view class="info-part flex margin-bottom-sm mb-sm" wx:for="{{info}}">
+      <view class="flex-sub margin-xs radius">{{index+1}}</view>
+      <view class="flex-treble margin-xs radius">{{item.add_time_text}}</view>
+      <view class="flex-twice margin-xs radius">{{item.type_text}}</view>
+			<view class="flex-twice margin-xs radius">{{item.integral}}</view>
+    </view>
+
+</view>

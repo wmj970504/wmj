@@ -1,0 +1,12 @@
+<!--pages/attend/attend.wxml-->
+	<view class="attend-part cu-item" wx:for="{{fallowList}}" wx:key="id">
+        <navigator url='../personal -center/personal -center?user_id={{item.id}}' class="user-img cu-avatar round lg" style="background-image:url({{item.avatar}});"></navigator>
+        <view class="attend-name content flex-sub">
+          <view class='user-name'>
+							<text>{{item.user_name}}</text>
+							<view class="user-icon cu-tag tag-sm line-blue">{{item.grade_name}}</view> 
+					</view>
+              <text class="user-title tag-sm">{{item.description}} </text>
+				</view>
+				<button data-id="{{item.id}}" class="f-btn cu-btn btn-sm round button-hover  {{item.is_fallow == 1 ? 'line-gray' : 'line-yellow'}} " bindtap="showicon"  >{{isFallowArr[item.is_fallow]}}</button>
+</view>

@@ -1,0 +1,67 @@
+<!--pages/contribution/contribution.wxml-->
+
+<view class="cu-item">
+		<view class="cu-list menu-avatar">
+				<view class="cu-item">
+						<view class="floor-img cu-avatar round lg" style="background-image:url({{user.avatar}});"></view>
+								<view class="content flex-sub">
+										<view class='floor-name'>{{user.user_name}}
+												<view class="tag-list">
+														<view class="padding-xs ">
+																<view class="floor-icon cu-tag tag-sm line-blue">{{user.grade_name}}</view>
+														</view>
+													</view>
+											</view>
+								<view class="text-gray text-sm flex justify-between">
+											<view class="cu-progress round margin-top xs">
+													<view style="width:{{distance.per}}%;background-color:#1FC987;"></view>
+											</view>
+											<view class='progress-detail'>
+														<text class='detail-left'>LV{{distance.now_level}}</text>
+															<text class='detail-center'>当前贡献值{{distance.now_value}}点，离下一级还差{{distance.need}}点</text>
+														<text class='detail-right'>LV{{distance.next_level}}</text>
+											</view>
+								</view>
+						</view>
+				</view>
+		</view>
+</view>
+
+<view class='contribution-info'>
+		<view class='info-title'>
+					<text class='title-text'>等级介绍</text>
+		</view>
+</view>
+
+<view class='info-detailtop'>
+				<view class='top-part'>
+							<view class='part-title'>等级</view>
+							<view class='part-title'>所需贡献值最小值</view>
+				</view>
+				<view class='top-part' wx:for="{{list}}" wx:key="id">
+							<view class='part-info'>{{item.title}}</view>
+							<view class='part-info'>{{item.value}}</view>
+				</view>
+</view>
+
+<view class='contribution-info'>
+		<view class='info-title'>
+					<text class='title-text'>如何提升贡献值？</text>
+		</view>
+</view>
+
+<view class='info-detailbottom'>
+				<view class='top-part'>
+							<view class='part-title'>加分项</view>
+							<view class='part-title'>贡献值</view>
+				</view>
+				<view class='top-part' wx:for="{{contributions}}">
+							<view class='part-info'>{{item.type_text}}</view>
+							<view class='part-info'>{{item.value}}</view>
+				</view>
+		
+</view>
+
+<view class='supplement'>
+		<text class='foot-text'>注：每日上限获得200贡献值</text>
+</view>

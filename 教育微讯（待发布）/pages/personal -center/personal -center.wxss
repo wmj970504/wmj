@@ -1,0 +1,175 @@
+/* pages/personal -center/personal -center.wxss */
+page{
+	background-color: #ffffff;
+}
+
+.page-container
+{
+			background-color: #ffffff;
+}
+
+.card-icon
+{
+		width: 28rpx;
+		height:20rpx;
+}
+
+.box-container{
+	/* padding: 15px; */
+	background-color: #ffffff;
+}
+.user-info-container{
+	height: 60px;
+	margin: 0 10px;
+	background-color: #ffffff;
+
+}
+.u-img-wrap {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.u-info-wrap {
+	/* margin-left:10px;  */
+	padding: 0 20rpx;
+	display: inline-block;
+	vertical-align: middle;
+}
+.focus-wrap{
+	height: 60px;
+	padding: 17px 0; 
+}
+.focus {
+	height: 26px;
+	line-height: 26px;
+	background-color: #17b5ee;
+	color: #ffffff;
+	border-radius: 5px;
+}
+
+.u-img-wrap
+{
+	margin-top:-50rpx;
+}
+
+.bg-img
+{
+		width: 100%;
+		height:180rpx;
+}
+
+.font-16rem
+{
+		display: flex;
+		flex-direction:column;
+}
+
+.person-name
+{
+		font-size:15px;
+		color: #333333;
+		padding: 0px;
+}
+
+.person-title
+{
+		font-size:15px;
+		color: #333333;
+		padding: 0px;
+}
+
+.person-title
+{
+		display: flex;
+		margin: auto;
+}
+
+.person-autograph
+{
+		font-size: 12px;
+		color:#999999;
+		padding: 0 30rpx;
+}
+
+.Post
+{
+	display: flex;
+	flex-direction: row;
+	margin-top: 200rpx;
+}
+
+.post-left
+{
+		width:50%;
+		text-align: center;
+		font-size: 17px;
+		border-top:2px soild #DEDEDE;
+}
+
+.post-right
+{
+		width:50%;
+		text-align: center;
+		font-size: 17px;
+		border-top:2px soild #DEDEDE;
+}
+
+.atn-btn {
+  background-color: #1FC987;
+	color:#FFFFFF;
+	display: block;
+}
+.atned-btn{
+	background-color: #EDEDED;
+	color:black;
+}
+.switch-type .btn {
+  background: #dfdfdf;
+  padding: 10rpx 40rpx;
+}
+
+.percenter
+{
+		margin-top:150rpx;
+}
+
+.percenter-nav
+{
+		color:#000000;
+		font-size:30rpx;
+}
+
+.nav .cu-item.cur
+{
+	border-bottom: 1rpx solid #1FC987;
+}
+
+ .cur
+{
+		font-size:30rpx;
+		font-family:PingFang-SC-Medium;
+		font-weight:bold;
+		color:rgba(0,0,0,1);
+}
+
+.atn-btn
+{
+		border-radius: 0;
+}
+
+.floor-icon
+{
+	margin-left:30rpx;
+	height: 30rpx;
+	font-size:20rpx;
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	vertical-align: center;
+}
+.ask-img
+{
+		width: 65rpx;
+		height: 66rpx;
+		float: right;
+}

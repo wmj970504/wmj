@@ -1,0 +1,9 @@
+<!--pages/nothing/nothing.wxml-->
+
+
+
+<view class='nothing-img'>
+			<image class='img-detail' src='../../img/nothing.png'></image>
+</view>
+
+<view class='bottom-info'>还没有消息哦～</view>

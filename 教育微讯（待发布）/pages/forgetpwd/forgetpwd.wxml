@@ -1,0 +1,32 @@
+<!--pages/forgetpwd/forgetpwd.wxml-->
+<view class='login-logo'>
+			<image class='logo-img' src='../../img/logo.png'></image>
+</view>
+
+
+<view class='login-container'>
+
+	<view class="cu-form-group">
+		<view class="title">
+				<image class='title-img' src='../../img/phone.png'></image>
+		</view>
+		<input placeholder="请输入手机号码" bindinput='bindphone'></input>
+	</view>
+
+	<view class="cu-form-group">
+		<view class="title">
+				<image class='title-img' src='../../img/getright.png'></image>
+		</view>
+		<input placeholder="请输入验证码" bindinput='bindCodeInput'></input>
+
+		<button class="cu-btn bg-green shadow" bindtap='getCode' hidden='{{hidden}}' disabled='{{btnDisabled}}' >{{btnValue}}</button>
+	</view>
+
+	<view class='login-attend'>（注：密码或验证码登录二选一）</view>
+
+	<button class='confirm' bindtap='next'>下一步</button>
+	<view class='login-help'>
+				<text class='register'>已有账号，</text>
+				<navigator url='../login/login' class='forget'>立即登录</navigator>
+	</view>
+</view>

@@ -1,0 +1,25 @@
+<!--pages/settingtel/settingtel.wxml-->
+
+<view class="cu-form-group">
+		<view class="title">旧手机号码</view>
+		<text class='old-num'>{{mobile}}</text>
+	</view>
+
+	<view class="cu-form-group">
+		<view class="title">短信验证码</view>
+		<input placeholder="请输入验证码" type='number' bindinput='bindCodeInput'></input>
+    <button class="cu-btn bg-green shadow" bindtap='getCode' hidden='{{hidden}}' disabled='{{btnDisabled}}' >{{btnValue}}</button>
+	</view>
+
+		<view class="cu-form-group">
+		<view class="title">新手机号码</view>
+		<input placeholder="请输入新的手机号码" bindinput='bindNewPhone' type='number'></input>
+	</view>
+
+		<view class="cu-form-group">
+		<view class="title">短信验证码</view>
+		<input placeholder="请输入验证码" type='number' bindinput='bindCodeInput1'></input>
+    <button class="cu-btn bg-green shadow" bindtap='getCode1' hidden='{{hidden1}}' disabled='{{btnDisabled1}}' >{{btnValue1}}</button>
+	</view>
+
+		<button class='save' bindtap='handleSave'>保存</button>

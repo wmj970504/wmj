@@ -1,0 +1,44 @@
+<!--pages/rank/index.wxml-->
+<view class='p-15'>点击卡片右侧按钮可进行排序</view>
+<!-- 0 1 2 分别代表文本 图片 视频 -->
+<view wx:for="{{topic_list}}" wx:key="index">
+
+  <!-- 文本 -->
+<view class='bg-white mb-15' style='position:relative' wx:if="{{item.type == 'txt'}}">
+  <textarea class=' ellipsis-3' style='height:190rpx!important;width:700rpx' disabled="true" value='{{item.content}}'>
+
+
+  </textarea>
+  <image src='/img/up.png' style='width:30rpx;height:18rpx;position:absolute;right:20rpx;top:50rpx;'  bindtap='item_up' data-sort="{{item.sort}}"></image>
+  <image src='/img/down.png' style='width:30rpx;height:18rpx;position:absolute;right:20rpx;top:100rpx;' bindtap='item_down' data-sort="{{item.sort}}"></image>
+</view>
+<!-- 图片 -->
+<view class='bg-white mb-15 p-15' style='position:relative' wx:if="{{item.type == 'img'}}">
+  <view style='width:700rpx'>
+    <image class='px-5' mode='aspectFit' src='{{item.url}}' style='width:160rpx;height:118rpx;'></image>
+  </view>
+
+
+  <image src='/img/up.png' style='width:30rpx;height:18rpx;position:absolute;right:20rpx;top:50rpx;' bindtap='item_up' data-sort="{{item.sort}}"></image>
+  <image src='/img/down.png' style='width:30rpx;height:18rpx;position:absolute;right:20rpx;top:100rpx;' bindtap='item_down' data-sort="{{item.sort}}"></image>
+
+</view>
+<!-- 视频 -->
+<view class='bg-white mb-15 p-15' style='position:relative' wx:if="{{item.type == 'video'}}">
+  <view style='width:700rpx'>
+    <video class='mx-5' src="{{item.url}}" style='width:160rpx;height:100rpx;'></video>
+  </view>
+
+
+  <image src='/img/up.png' style='width:30rpx;height:18rpx;position:absolute;right:20rpx;top:50rpx;' bindtap='item_up' data-sort="{{item.sort}}"></image>
+  <image src='/img/down.png' style='width:30rpx;height:18rpx;position:absolute;right:20rpx;top:100rpx;' bindtap='item_down' data-sort="{{item.sort}}"></image>
+
+</view>
+
+</view>
+
+<!-- 底部 -->
+<view class='h-50 w-100 text-center' style='position:fixed;bottom:0;font-size:0'>
+  <view class='w-5 font-18 bg-white lh-50 text-dark inline-block' bindtap='cancel_rank'>取消</view>
+  <view class='w-80 font-18 default_bg lh-50  text-white inline-block' bindtap='finish_rank'>完成排序</view>
+</view>

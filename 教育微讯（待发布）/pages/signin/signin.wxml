@@ -1,0 +1,67 @@
+<!--pages/signin/signin.wxml-->
+
+<view class="calendar">
+  <image style='width:100%;height:390rpx' mode='aspectFill'  src='{{sign_cover ?sign_cover : "url(../../img/signin.png)"}}'></image>
+  <view class="calendarSign">
+ 
+	  <button class='beforesign' wx:if="{{!is_sign}}" style='background-image:url(../../img/signin-btn.png);background-size:cover;' bindtap="add_signin">
+				<text class='signbtn-text'>签到</text>
+				<view class='hr'></view>
+				<text class='sign-histroy'>连续{{days}}天</text>	
+		</button>
+    <button class='aftersign' style='background-image:url(../../img/signin-btn.png);background-size:cover;' wx:else >
+			<text class='signbtn-text'>已签到</text>
+			<view class='hr'></view>
+				<text class='sign-histroy'>连续{{days}}天</text>	
+		</button>
+			<view class='sign-record'>已累计签到<text>{{total_days}}</text>天</view>
+   </view>
+	
+    <!-- calendar -->
+  <view class='sign-calendar bg_transform cont mt-20' style='padding:30rpx'>
+    <view class=' calendar-wrapper  bg-white'>
+      <view class='calendar-title text-center font-b font-16' style='position:relative'>
+        <view>签到记录</view>
+        <image src='/res/imgs/rili.png' class='mt-15 mr-15' bindtap="toIllustrate" style='width:44rpx;height:44rpx;position:absolute;top:0px;right:0px;'></image>
+      </view>
+      <view class="demo3">
+        <calendar cell-size="24" 
+        bindnextMonth="dateChange" 
+        bindprevMonth="dateChange" 
+        binddateChange='dateChange' 
+        year="{{year}}" 
+        month="{{month}}" 
+        header-style="demo3-header" 
+        board-style="demo3-board" 
+        days-color="{{sign_days_style}}" 
+        weeks-type="cn" 
+        binddayClick="day_click"
+        open-type="share"/>
+      </view>
+
+    </view>
+
+  </view>
+
+
+</view>
+
+<view class='sign-bottom'>
+			<view class='info-part'>
+						<view>
+								<image class='info-img' src='../../img/gift.png'></image>
+								<text class='img-text'>签到奖励</text>
+						</view>
+			</view>
+
+			<view class='info-part' wx:for="{{reward_list}}">
+					<view>
+						<text>连续签到{{item.days}}天：+{{item.integral}}积分</text>
+						<button class='cu-btn bg-grey button-hover' wx:if="{{item.status == 10}}">进行中</button>
+            
+            <button class='cu-btn bg-green button-hover' wx:elif="{{item.status == 20}}" bindtap='getpoin' data-id="{{item.signin_id}}" data-index="{{index}}">领取</button>
+            <button class='cu-btn bg-grey button-hover' wx:else bindtap='test' >已领取</button>
+					</view>
+			</view>
+		
+</view>

@@ -1,0 +1,139 @@
+/* pages/report/report.wxss */
+page{
+	background-color: #fff; 
+}
+
+.comment-details
+{
+	width: 345px;
+	margin: auto;
+	margin-top:15px;
+}
+
+.comment-person
+{
+		margin-bottom:10px;
+}
+
+
+.person-img
+{
+		width:30px;
+		height:30px;
+		border-radius:50%;
+}
+
+.person-name
+{
+		color:#0389F9;
+		font-size:15px;
+		margin-left:10px;
+		position: relative;
+		bottom: 5px;
+}
+
+.t1
+{
+		display: inline-block;
+		margin-left:15px;
+		position: relative;
+		bottom: 6px;
+}
+
+.floor
+{
+	 font-size:12px;
+	 color:#999999;
+	 float:right;
+}
+
+.pdetail
+{
+		font-size:15px;
+		color:#333333;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		line-height: 24px;
+		margin-bottom: 10px;
+}
+
+.person-detail
+{
+		display: flex;
+		flex-direction: column;
+}
+
+.detail-time
+{
+		font-size:12px;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+}
+
+.pdetail-info
+{
+		color:#999999;
+		font-size: 13px;
+		margin-bottom:10px;
+}
+
+.comment-img1
+{
+		width:14px;
+		height: 13px;
+		margin-left:150px;
+}
+
+.comment-img2
+{
+		width:14px;
+		height: 14px;
+		margin-left:15px;
+}
+
+.delate
+{
+		color:#666666;
+		font-size:12px;
+		float: right;
+}
+
+.complaint-detail
+{
+		width:90%;
+		margin:auto;
+}
+
+.complaint-reason
+{
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(0,0,0,1);
+	/* margin-top:50px;	 */
+}
+
+.pt_20{padding-top: 20rpx}
+.reason-detail
+{
+		margin-top:15px;
+		width:100%;
+		min-height: 400rpx;
+		height:400rpx;
+		border:1px solid #E8E8E8;
+}
+
+.complaint-btn
+{
+	background-color:#1FC987;
+	color:#ffffff;
+	border-radius:0;
+  position:fixed;
+  width:100%;
+  bottom:0;
+
+}
+
+/* 新增图证 */
+.gallery{ position: relative;padding-right:30rpx}
+.gallery .image1{width:195rpx;height:195rpx;padding-top:20rpx}
+.gallery .image2{width:32rpx;height:32rpx;position:absolute;right:15rpx;top:6rpx;}

@@ -1,0 +1,17 @@
+<!--pages/resetpwd/resetpwd.wxml-->
+
+<view class='login-logo'>
+			<image class='logo-img' src='../../img/logo.png'></image>
+</view>
+
+<view class='resetpwd-container once'>
+		<input class='new-pwd' placeholder='请输入新的登录密码' bindinput='bindpass'></input>
+</view>
+
+<view class='pwd-attend'>（6-32位字符，可使用数字、字母和符号任意组合）</view>
+
+<view class='resetpwd-container onemore'>
+		<input class='new-pwd' placeholder='请再输一遍' bindinput='bindrepass'></input>
+</view>
+
+	<button class='confirm' bindtap='subto'>提交</button>

@@ -1,0 +1,77 @@
+<!--pages/mycollection/mycollection.wxml-->
+
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="top-nav flex-sub" wx:for="{{ask_nav}}" wx:key bindtap="tabSelect" data-id="{{ask_nav}}" data-name="{{index}}">
+      <text class="tabText {{index==TabCur?'tabstyle':''}}" style=''>
+      {{item.name}}
+    </text>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="cu-card dynamic no-card">
+  <view class='cu-item' wx:for="{{list}}">
+    <view class='date'>
+      {{item.date}}
+    </view>
+
+    <view class="cu-item" style="margin-bottom:30rpx;" wx:for="{{item['list-']}}">
+      <image class='ask-png {{item.type == 2 ? "" : "hid"}}' src='../../img/ask.png'></image>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <image src="{{item.avatar ? item.avatar : 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'}}" class="floor-img cu-avatar round lg" bindtap='locationuserinfo' data-id="{{item.user_id}}"></image>
+          <view class="content flex-sub">
+            <view class='floor-name'>
+              {{item.user_name}}
+              <view class="tag-list">
+                <view class="padding-xs ">
+                  <view class="floor-icon cu-tag tag-sm line-blue">{{item.category_text}}</view>
+                </view>
+              </view>
+              <view class="floor-btn margin-tb-sm text-center">
+                <button class="f-btn cu-btn btn-sm round {{fallows[item.id] ? 'line-gray' : 'line-yellow'}} button-hover" bindtap="showicon" data-id="{{item.user_id}}" data-cid="{{item.id}}">
+                  {{isFallow[item.is_fallow]}} </button>
+              </view>
+            </view>
+
+            <view class="text-gray text-sm flex justify-between">
+              {{item.add_time_text}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <navigator url="../postdetail/postdetail?id={{item.id}}">
+        <view class="text-content">
+          {{item.title}}
+        </view>
+      </navigator>
+
+      <!-- <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+                      <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);" wx:for="{{isCard?9:1}}" wx:key="{{index}}">
+                      </view>
+                  </view> -->
+      <view wx:if="{{item.cover_type == 'img'}}">
+        <view class="grid flex-sub padding-lr col-3 grid-square">
+          <view wx:for="{{item.cover}}" class="bg-img" style="background-image:url({{item}});">
+          </view>
+        </view>
+      </view>
+      <view wx:elif="{{item.cover_type == 'video'}}">
+        <view class="grid flex-sub padding-lr  grid-square">
+          <video src="{{item.cover[0]}}" class="bg-img w-100"  ></video>
+        </view>
+      </view>
+
+      <view class="text-gray text-md text-right padding solid-top margin">
+        <text class="card-icon cuIcon-attentionfill margin-lr-xs"></text> {{item.view}}
+        <text class="card-icon cuIcon-messagefill margin-lr-xs"></text> {{item.comment_count}}
+        <!-- <text class="card-icon cuIcon-appreciatefill margin-lr-xs"></text> {{item.star_count}} -->
+        <image class='card-icon' src="{{item.is_stared ? good_select : good}}" bindtap='changeimg' data-id="{{item.id}}" style='margin-left:15rpx;'></image>{{item.star_count}}
+
+        <!-- <text class='cuIcon-delete lg text-gray margin-lr-xs' bindtap='delete_fav' data-id="{{item.id}}" data-index="{{item.index}}"></text> -->
+      </view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,6 @@
+/* pages/my_draft/index.wxss */
+.line_font{border:2rpx solid #1FC987;color:#1FC987;line-height:26rpx!important;font-size:20rpx!important;padding: 0 10rpx;margin-right:10rpx;border-radius: 4rpx}
+.line_font1{border:2rpx solid #034BA5;color:#034BA5;line-height:26rpx!important;font-size:20rpx!important;padding: 0 10rpx;border-radius: 4rpx}
+.default_color1{color: #034BA5}
+.default_color{color:#1FC987}
+.flexbox{display: flex;justify-content: space-between}
