@@ -1,0 +1,52 @@
+/* pages/zhichi/zhichi.wxss */
+page{
+  background: #eee
+}
+.head {
+  display: flex
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.aaa{
+  margin-top: 30rpx;
+  width:85%
+}
+.bbb{
+  margin-top: 30rpx;
+  width:15%
+}
+
+.jine{
+  display: flex;
+  width:100%;
+}
+
+.choose{
+  width:100%;
+  margin-top: 30rpx;
+}
+
+.tou text{
+  color: #f00;
+}
+.neirong{
+  font-size: 30rpx;
+}
+.shijian{
+  font-size: 25rpx;
+  color: #aaa
+}
+.btn{
+  width:95%;
+  margin-top: 30rpx;
+}

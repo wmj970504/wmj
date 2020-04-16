@@ -1,0 +1,175 @@
+<!--pages/details/details.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>{{details.title}}</view>
+  </view>
+  <!-- 轮播图 -->
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
+    <block wx:for="{{details.image}}" wx:key="index">  
+      <swiper-item>  
+        <image src="{{item}}" class="slide-image" mode="aspectFill"/>  
+      </swiper-item>   
+    </block>    
+  </swiper> 
+  <view class='cell'>
+    <van-cell  border="{{ false }}" title="{{details.title}}" size="large" label="浏览 {{details.pageview}} 收藏 {{details.favorite_count}}"/>
+    <van-row>
+      <van-col span="3"><image class='tx' src='{{details.user.avatar_file}}' bindtap="toxinxi"></image></van-col>
+      <van-col span="10" class='shiming'>
+      <text style="font-size: 30rpx;" >{{details.user.nick_name}} </text>    
+      <image v-show='{{details.user.is_verify==1}}' :src='../../images/shimingrenzheng.png'></image>
+      </van-col>
+    </van-row>
+    <view>
+      <van-cell border="{{ false }}" is-link title="筹款回报" link-type="navigateTo" url="/pages/ckhuibao/ckhuibao?project_id={{details.project_id}}"/>
+      <van-cell border="{{ false }}" is-link title="筹款动态" link-type="navigateTo" url="/pages/ckdongtai/ckdongtai?project_id={{details.project_id}}"/>
+      <van-cell border="{{ false }}" is-link title="筹款证实" link-type="navigateTo" url="/pages/zhengshilist/zhengshilist?project_id={{details.project_id}}"/>
+    </view>
+    <!-- 进度 -->
+    <view>
+      <van-cell border="{{ false }}" value="{{details.support_num}}人支持" is-link center title-width='70%' url="/pages/zhichizhe/zhichizhe?project_id={{details.project_id}}&status={{details.status}}">
+        <view slot="title" class='jindu'>
+          <view>
+            <van-circle class="{{yc}}" size="70" value="{{details.raise_progress}}" color="{{ gradientColor }}" text="{{details.raise_progress}}%" layer-color="#eeeeee"/>
+            <view style='{{yc=="hidden"?"width:70px;height:77px":""}}'></view>
+          </view>
+          <view class='text'>
+            <view>已筹：￥{{details.raised_amount}}</view>
+            <view>目标：￥{{details.target_amount}}</view>
+            <view>剩余：{{details.surplus_day}}</view>
+          </view>
+        </view>
+      </van-cell>
+    </view>
+  </view>
+  <!-- 详情 -->
+  <view class='details'>
+    <view class='wenzi'>项目详情</view>
+    <view class="images {{hidden=='展开详情' ? 'height' : ''}}">
+    <!-- <rich-text nodes="{{ans}}"></rich-text> -->
+      <rich-text nodes="{{details.content}}" style='word-break:break-all'></rich-text>
+      <!-- <image src='../../images/banner.png'></image>
+      <image src='../../images/banner.png'></image>
+      <image src='../../images/banner.png'></image> -->
+    </view>
+    <button  class="btn" bindtap='change'>{{hidden}}</button>
+  </view>
+  <!-- 评论 -->
+  <view wx:for="{{pl}}" class="pinlun" wx:key="index" data-comment_id='{{item.comment_id}}' bindtap="setcomment_id">
+    <van-row >
+      <van-col span="3" class="touxiang"><image src="{{item.user.avatar_file}}"></image></van-col>
+      <van-col span="13" offset="1">
+      <view class='shiming'>{{item.user.nick_name}}</view>
+      <view class="data">{{item.add_time}}</view>
+      </van-col>
+      <van-col span="7">
+        <view class="dianzan">
+        <image src="{{zanIcon}}" data-comment_id='{{item.comment_id}}' catchtap="click" data-icon="zan"></image>
+        <text>{{item.top_num}}</text> | 
+        <image src="{{caiIcon}}" data-comment_id='{{item.comment_id}}' catchtap="click" data-icon="cai"></image>
+        <text> {{item.down_num}}</text>
+        </view>
+      </van-col>
+      <van-col span="17" offset="4" class='pl style='font-size:20rpx'  bindtap='pinglun'  data-tid="{{item.user}}">{{item.content}}</van-col>
+      <van-col span="17" offset="4" class='pl'>
+        <view class="huifu" wx:for="{{item.reply}}" wx:key="index">
+          <text class="nicheng"  data-tid="{{item.from_user}}"   bindtap="pinglun"  >{{item.from_user.nick_name}}</text> 回复:<text class="nicheng"  data-tid="{{item.to_user}}"  bindtap="pinglun" >{{item.to_user.nick_name}}  </text>{{item.content}}
+        </view>
+      </van-col>
+    </van-row>
+  </view>
+  <view class='kong'></view>
+  <!-- 底部 -->
+  <van-row class='bottom'>
+    <view class='gao'></view>
+    <van-col span="3" offset="1">
+      <view bindtap='showPopup'>
+        <van-icon size="20pt" name="more-o"/>
+        <view>分享</view>
+      </view>
+      <van-action-sheet show="{{ show }}" bind:cancel="onClose" bind:click-overlay="onClose" cancel-text="取消">
+        <van-divider contentPosition="center">分享筹款，获得支持</van-divider>
+        <!-- <view class='tupian'>
+          <van-row>
+            <van-col span="6" offset="2">
+              <button>
+                <image src='../../images/wb.png'></image>
+                <view>新浪微博</view>
+              </button>
+            </van-col>
+            <van-col span="6" offset="2">
+              <button>
+                <image src='../../images/pyq.png'></image>
+                <view>朋友圈</view>
+              </button>
+            </van-col>
+            <van-col span="5" offset="2">
+              <button open-type="share">
+                <image src='../../images/wx.png'></image>
+                <view>微信好友</view>
+              </button>
+            </van-col>
+          </van-row>
+        </view> -->
+        <view  class='tupian'>
+          <van-row>
+          <van-col span="5" offset='1'>
+              <button open-type="share">
+                <image src='../../images/wx.png'></image>
+                <view>邀请好友</view>
+              </button>
+            </van-col>
+          <van-col span="5" offset='1' >
+              <button bindtap="ctx_img1">
+                <image src='../../images/pyq.png'></image>
+                <view>保存图片</view>
+              </button>
+            </van-col>
+            <van-col span="5" offset='1'>
+              <button bindtap='toxinxi'>
+                <image src='../../images/lxr.png'></image>
+                <view>联系Ta</view>
+              </button>
+            </van-col>
+            <!-- <van-col span="6" offset="2">
+              <button>
+                <image src='../../images/lj.png'></image>
+                <view>复制链接</view> 
+              </button>          
+            </van-col> -->
+            <van-col span="5" offset='1' >
+              <button bindtap='bangzhu'>
+                <image src='../../images/bz.png'></image>
+                <view>使用帮助</view>   
+              </button>         
+            </van-col>
+          </van-row>
+        </view>
+      </van-action-sheet>
+    </van-col>
+    <van-col span="3">
+      <view bindtap="showInput">
+        <van-icon size="20pt" name="comment-circle-o" />
+        <view>评论</view>
+      </view>
+    </van-col>
+    <van-col span="3">
+      <view bindtap="shoucang">
+        <van-icon size="20pt" name="star-o" color="{{color}}" />
+        <view>收藏</view>
+      </view>
+    </van-col>
+    <van-col span="13"><van-button bind:click="toZhichi" round type="primary" size="large" color="linear-gradient(to right, #FCC635,#FF9518)">{{details.status==0?'助力小宇宙':details.status==1?'筹款成功':'筹款结束'}}</van-button></van-col>
+    <view class="input-section" wx:if="{{showInput}}">
+      <input class='input_input' bindinput="inputtext" focus="auto" placeholder="{{nickname==''?'请输入':'to'+nickname}}"  bindblur="onHideInput" confirm-type="send" bindconfirm="sendTextMsg" />
+      <view style="height:110rpx;width:170rpx;display:flex; align-items: center;justify-content: center;">
+       <view class="send_btn">
+         <text class="send_btn_text" bindtap="send">发送</text>
+        </view>
+      </view>
+    </view>
+  </van-row>
+    <canvas wx:if="{{canvas}}" class="cans" canvas-id="shareCanvas" style="width:680px;height:1000px"></canvas>
+</view>
+ 

@@ -1,0 +1,47 @@
+<!--pages/personal/personal.wxml-->
+<button class="loginbtn" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">请登录</button>
+<view class="container"  wx:else>
+  <!-- head -->
+  <view class='head'>
+    <text class='title' style='  margin-top: {{navH-35}}px'>个人中心</text>
+    <view class='zhanghao' bindtap='tozh'> 
+      <image src='{{userInfo.avatarUrl}}'></image>
+      <view class="word">账号管理</view> 
+      <van-icon name="arrow" />
+    </view>
+  </view> 
+  <!-- tab -->
+  <view class='tab'>
+    <van-row class="row1">
+      <!-- <van-col span="6" data-url="others/others?id=1" bindtap='toPages'>
+      <van-icon name="manager-o" /> 
+      0.00
+      </van-col> -->
+       <van-col span='6' data-url="/support/support">{{usernum.raised_amount}}</van-col>
+      <van-col span="6" data-url="support/support?name=zhichi" bindtap='toPages'>{{usernum.support_num}}</van-col>
+      <van-col span="6" data-url="myfans/myfans" bindtap='toPages'>{{usernum.focused_count}}</van-col>
+      <van-col span="6" data-url="myidol/myidol" bindtap='toPages'>{{usernum.focus_count}}</van-col>
+    </van-row>
+    <van-row class="row2">
+      <van-col span='6' >筹款金额</van-col>
+      <!-- <van-col span="6" data-url="others/others?id=1" bindtap='toPages'>个人中心</van-col> -->
+      <van-col span="6" data-url="support/support?name=zhichi" bindtap='toPages'>我支持的</van-col>
+      <van-col span="6" data-url="myfans/myfans" bindtap='toPages'>关注我的</van-col>
+      <van-col span="6" data-url="myidol/myidol" bindtap='toPages'>我关注的</van-col>
+    </van-row>
+  </view>
+  <view class='kong'></view>
+  <!-- money -->
+  <van-cell border="{{ false }}" data-url="mywallet/mywallet" bind:click="toPages" title="我的钱包" is-link value="极速提现" title-class="cell-title" value-class="cell-value"/>
+  <!-- 功能 -->
+  <view class='gongneng'>
+    <van-cell border="{{ false }}" title="我的筹款" is-link value="一个念头就是小宇宙" title-class="cell-title" value-class="cell-value" data-url="support/support?name=choukuan" bindtap='toPages'/>
+    <!-- <van-cell border="{{ false }}" title="邀请好友" is-link value="一起来众筹" title-class="cell-title" value-class="cell-value"/> -->
+    <van-cell border="{{ false }}" data-url="message/message" bind:click="toPages" title="消息中心" is-link value="在线服务" title-class="cell-title" value-class="cell-value"/>
+  </view>
+  <van-cell border="{{ false }}" title="我的回报" is-link title-class="cell-title" url="/pages/huibao/huibao"/>
+    <van-cell border="{{ false }}" title="账号认证" value="{{renzheng}}" value-class="cell-value" is-link title-class="cell-title" url="{{usernum.is_verify==1?'':usernum.is_verify==3?'':'/pages/renzheng/renzheng'}}"/>
+    <van-cell border="{{ false }}" title="产品意见" is-link title-class="cell-title" url="/pages/opinion/opinion"/>
+    <van-cell border="{{ false }}" title="更多" is-link title-class="cell-title" url="/pages/question/question"/>
+</view>
+<tabbar tabbar="{{tabbar}}"></tabbar>

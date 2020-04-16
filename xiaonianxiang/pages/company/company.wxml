@@ -1,0 +1,17 @@
+<!--pages/company/company.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>公司</view>
+  </view>
+  <view class='content'>
+    <van-field
+      clearable
+      data-company="company"
+      value="{{company}}" 
+      placeholder="请输入公司"
+      bind:input="companyname"
+    />
+    <van-button bind:click="save" color="linear-gradient(to right, #FCC635,#FF9518)" size="large">保存</van-button>
+  </view>
+</view>

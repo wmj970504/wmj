@@ -1,0 +1,54 @@
+<!--pages/choukuan/choukuan.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>筹款描述</view>
+  </view>
+  <!-- title -->
+  <view class='title'>
+    <van-field
+      value="{{ value }}"
+      border="{{ false }}"
+      placeholder="标题"
+      placeholder-style="{{plh}}"
+      border="true"
+      bind:input="onBlurtitle"
+    />
+  </view>
+  <view class='row'>
+    <textarea class='text' border="{{ false }}" maxlength="300" placeholder="描述详情(介绍自己，筹款目的，筹款用途...)" bindinput='inputText'/>
+    <view>{{num}}</view>
+  </view>
+  <!-- 分类 -->
+  <view class="xuanze">
+    <van-radio-group value="{{ radio }}" bind:change="onChange">
+      <van-cell-group>
+        <van-cell title="筹款分类" border="{{ false }}"/>
+        <van-cell 
+          title="{{item.title}}"
+          border="{{ false }}"
+          clickable
+          data-name="{{item.category_id}}"
+          bind:click="onClick"
+          wx:for="{{list}}"
+          wx:key="index"
+          wx:if="{{item.category_id!=1&&item.category_id!=2}}"
+        >
+          <van-radio slot="right-icon" name="{{item.category_id}}" checked-color="#07c160"/>
+        </van-cell>
+      </van-cell-group>
+    </van-radio-group>
+  </view>
+  <!-- 上传图片 -->
+  <view class="img">
+    <van-uploader
+      file-list="{{ fileList }}"
+      bind:delete='del'
+      max-count="9"
+      bind:after-read="afterRead"
+    />
+  </view>
+  <view class="btn">
+    <van-button size="large" bindtap="baocun" color="linear-gradient(to right, #FCC635,#FF9518)">保存</van-button>
+  </view>
+</view>

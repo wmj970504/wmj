@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<view class="container">
+<!-- 顶部 -->
+  <view class='head'>
+    <text class='title' style='  margin-top: {{navH-35}}px'>小念头</text>
+    <view class='search'>
+      <van-search
+        value="{{ value }}"
+        placeholder="点亮梦想"
+        background="transparent"
+        use-action-slot
+        bind:change="onChange"
+        bind:search="onSearch"
+      > 
+        <view slot="action" bind:tap="onClick">搜索</view>
+      </van-search>
+    </view>
+  </view>
+</view>
+<!-- 导航条 -->
+<view style="margin-bottom:140rpx"> 
+<van-tabs   active="{{active}}" bind:change='qiehuan'  animated color="#FF9518">
+  <van-tab  title="{{item.title}}" name="{{item.category_id}}"   wx:for='{{fenlei_list}}' wx:key='index'>
+    <!-- 轮播图 -->
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
+      <block wx:for="{{banner_list}}" wx:key="index">  
+        <swiper-item>  
+          <image src="{{item.image_url}}" class="slide-image" mode="aspectFill"/>  
+        </swiper-item>  
+      </block>  
+    </swiper> 
+    <!-- 首页 -->
+    <view class='outside' wx:for='{{details_list}}' wx:key="index">
+      <image class='touxiang' src='{{item.user.avatar_file}}' data-user_id="{{item.user.user_id}}" bindtap="toxinxi"></image>
+      <!-- 内部 -->
+      <view class='inside' bindtap='toDetails' data-id="{{item.project_id}}">
+        <!-- 名字 -->
+        <view class='name'>
+          <text class='nametext'>{{item.user.nick_name }}</text>
+          <image wx:if='{{item.user.is_verify==1}}' class='shiming' src='../../images/shimingrenzheng.png'></image>
+          <view class='choukuan'>
+            <text>{{item.status==0?'正在筹款':item.status==1?'筹款成功':'筹款结束'}}</text>
+            <image src='../../images/biaoqian.png'></image>
+          </view>
+        </view>
+        <!-- 性别年龄 -->
+        <view class='age'>
+          <van-tag plain color="{{item.user.gender==1?'#5ECBD2':'#FFA8BB'}}"><image src="{{item.user.gender==1?'../../images/nan.png':'../../images/nv.png'}}"></image>{{item.user.age}}</van-tag>
+          <van-tag plain type="success" wx:if="{{item!=null||item!=undefined}}" wx:for="{{item.user.label}}" wx:key="index">
+          {{item}}
+          </van-tag>
+        </view>
+        <!-- 内容进度 -->
+        <view class='jindu'>
+          <text>{{item.title}}</text>
+          <view style="width:{{item.raise_progress>100?97:item.raise_progress}}%"></view>
+        </view>
+        <!-- 底部 -->
+        <view class='botton'>
+          <van-row>
+            <van-col span="7" offset="1">已筹{{item.raised_amount}}元</van-col>
+            <van-col span="7" offset="2">{{item.support_num}}人支持</van-col>
+            <van-col span="5" offset="2">剩余{{item.surplus_day}}天</van-col>
+          </van-row>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  
+</van-tabs>
+</view>
+<tabbar tabbar="{{tabbar}}"></tabbar>
+<view class="dibu"></view>
+<view class='null' wx:if="{{details_list[0].project_id==undefined}}">
+    <text>暂无筹款</text>
+</view>

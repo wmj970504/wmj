@@ -1,0 +1,17 @@
+ <!--pages/jilu/jilu.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>账户记录</view>
+  </view>
+  <!-- 记录 -->
+  <view class='jilu'>
+    <van-cell border="{{ false }}" value="￥{{item.amount}}" center value-class="value" wx:for="{{list}}" wx:key='index'>
+      <view slot="title">
+        <view class="van-cell-text1">{{item.title}}</view>
+        <!-- <view class="van-cell-text2">成功</view> -->
+        <view class="van-cell-text3">{{item.add_time}}</view>
+      </view>
+    </van-cell>
+  </view>
+</view>

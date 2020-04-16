@@ -1,0 +1,38 @@
+/* pages/hbzhuangtai/hbzhuangtai.wxss */
+page{
+  background: #eee
+}
+.head {
+  display: flex
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.vanrow{
+  background: #fff;
+  width:100%;
+  margin: 30rpx 0
+}
+.vanrow van-row{
+  display: block;
+  margin: 10rpx 0
+}
+.title{
+  font-size: 35rpx;
+  color: #aaa
+}
+.content{
+  font-size: 35rpx;
+}
+.btn{
+  width: 100%
+}

@@ -1,0 +1,39 @@
+<!--pages/ckdongtai/ckdongtai.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>筹款动态</view>
+  </view>
+  <!-- list -->
+  <view class='list' wx:for="{{dt}}" wx:key="index">
+    <view class="date">{{item.add_time}}</view>
+    <view class="content">{{item.content}}</view>
+    <view class="img" >
+    <image wx:for="{{item.image_url}}" wx:key="index" src="{{item}}">
+    </image></view>
+  </view>
+  <!-- 底部 -->
+  <!-- <view class='bottom'>
+    <van-row>
+      <van-col span="4" offset="2"><van-icon name="close" size="60rpx" color="#aaa"/></van-col>
+      <van-col span="12">
+        <van-button size="large" color="linear-gradient(to right, #FCC635,#FF9518)">筹款成功</van-button>
+      </van-col>
+      <van-col span="4" offset="2"><van-icon name="more-o" size="60rpx" color="#aaa"/></van-col>
+    </van-row>  
+  </view> -->
+</view>
+<view class='null' wx:if="{{dt[0].content==undefined}}">
+    <image src='../../images/空.png'></image>
+    <text>暂无动态</text>
+</view>
+
+<!-- <view class='bottom'>
+    <van-row>
+      <van-col span="4" offset="2" bindtap='fanhui'><van-icon name="close" size="60rpx" color="#aaa"/></van-col>
+      <van-col span="16">
+        <van-button bindtap="toFbdongtai"   size="large" color="linear-gradient(to right, #FCC635,#FF9518)">发布动态</van-button>
+      </van-col>
+      <van-col span="4" offset="2" bindtap='showPopup'><van-icon name="more-o" size="60rpx" color="#aaa"/></van-col>
+    </van-row>  
+  </view>  -->

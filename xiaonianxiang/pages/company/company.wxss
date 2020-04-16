@@ -1,0 +1,27 @@
+/* pages/company/company.wxss */
+page{
+  background: #eee
+}
+.head {
+  display: flex
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.content {
+  width:100%;
+}
+
+.content van-field {
+  display: block;
+  margin: 20rpx 0;
+}

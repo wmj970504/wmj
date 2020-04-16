@@ -1,0 +1,79 @@
+/* pages/choukuanxq/choukuanxq.wxss */
+.head {
+  display: flex
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.content{
+  width:100%
+}
+.content image{
+  width:140rpx;height:140rpx;
+}
+.content van-row{
+  display: block;
+  margin-top: 20rpx;
+  border-bottom: 1px solid #eee
+}
+.rowtext{
+  font-size: 28rpx;
+  color:#aaa;
+  margin-top: 40rpx;
+}
+.icon{
+  margin-top: 45%;
+}
+.celltitle{
+  font-size: 35rpx;
+}
+.btn{
+  position: fixed;
+  bottom: 25rpx;
+  width: 95%
+}
+.tupian {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+  text-align: center
+}
+.btn image{
+   width:90rpx;height:90rpx; 
+}
+.tupian image {
+  width:90rpx;height:90rpx;
+}
+.circle-box{
+  position: relative;
+}
+.circle-box view{
+  font-size: 28rpx;
+  position: absolute;
+  top:33%;
+  left: 17%
+}
+.hidden{
+  display: none
+}
+.bottom{
+  width:100%;
+  position: fixed;
+  bottom:0;
+  border-top: 1px solid #eee;
+  padding-top: 10rpx;
+  padding-bottom: 30rpx;
+  background: #fff
+}
+.bottom button{
+  height:70rpx
+}

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "tabbar": "../../tabbarComponent/tabbar",
+    "van-cell": "@vant/weapp/cell",
+    "van-icon": "@vant/weapp/icon",
+    "van-row": "@vant/weapp/row",
+    "van-col": "@vant/weapp/col"
+  },
+  "enablePullDownRefresh": true
+}

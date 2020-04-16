@@ -1,0 +1,79 @@
+/* pages/others/others.wxss */
+page {
+  background: #eee;
+}
+
+.othershead {
+  height: 550rpx;
+  width:100%;
+}
+
+.beijing {
+  height: 100%;
+  width:100%;
+}
+
+.othershead van-icon {
+  position: absolute;
+  top: 65rpx;
+  left: 30rpx;
+}
+
+.name {
+  position: absolute;
+  top: 380rpx;
+  left: 50%;
+  color: #fff;
+  font-size: 35rpx;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+
+.name van-tag{
+  margin-left: 10rpx;
+}
+.name>view{
+  font-size: 24rpx;
+  width: 100vw
+}
+.touxiang {
+  position: absolute;
+  top: 230rpx;
+  left: 50%;
+  margin-left: -65rpx;
+  height:130rpx;
+  width:130rpx;
+  border-radius: 50%;
+}
+
+.xinxi {
+  width:100%;
+  border-bottom: 1px solid #eee;
+  font-size: 35rpx;
+  color: #666;
+  background: #fff;
+}
+
+.xinxi van-icon {
+  margin: 30rpx 30rpx 25rpx 36rpx;
+}
+
+.zhichi{
+  width:100%;
+  margin-top: 45rpx;
+}
+
+.cell-title{
+  color: #aaa;
+  margin-left: 20rpx;
+}
+
+.btn {
+  width:90%;
+  margin-top: 50rpx
+}
+
+.hidden {
+  display: none;
+}

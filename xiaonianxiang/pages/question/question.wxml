@@ -1,0 +1,21 @@
+<!--pages/question/question.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>常见问题</view>
+  </view>
+</view>
+<van-cell-group>
+  <van-cell
+     wx:for='{{help_list}}' wx:key="index"
+    border="{{ false }}"
+    is-link
+    title="{{item.title}}"
+    link-type="navigateTo"
+    url="/pages/qus/qus?id={{item.help_id}}"
+  />
+</van-cell-group>
+<view class='null' wx:if="{{help_list[0].title==undefined}}">
+    <image src='../../images/空.png'></image>
+    <text>暂无回报</text>
+</view>

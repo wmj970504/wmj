@@ -1,0 +1,27 @@
+<!--pages/mywallet/mywallet.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>我的钱包</view>
+  </view>
+  <view class='money'> 
+    <van-cell
+      is-link
+      center
+      border="{{ false }}"
+      title="￥{{money.can_transfer}}"
+      title-class="cell-title1"
+      link-type="navigateTo"
+      url="/pages/tixian/tixian?can_transfer={{money.can_transfer}}&down_amount={{money.down_amount}}"
+    />
+    <van-cell
+      is-link
+      border="{{ false }}"
+      center
+      title="零钱记录"
+      title-class="cell-title"
+      link-type="navigateTo"
+      url="/pages/jilu/jilu"
+    />
+  </view>
+</view>

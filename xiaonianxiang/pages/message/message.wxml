@@ -1,0 +1,12 @@
+<!--pages/message/message.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>消息</view>
+  </view>
+  
+</view>
+<view data-message_id='{{item.message_id}}'  class='message' wx:for='{{mss}}' wx:key='index'>
+    <text>{{item.content}}</text>
+    <view>{{item.add_time}}</view>
+</view>

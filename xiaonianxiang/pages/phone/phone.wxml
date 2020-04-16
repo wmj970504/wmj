@@ -1,0 +1,18 @@
+<!--pages/phone/phone.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>手机</view>
+  </view>
+  <view class='content'>
+    <van-field
+      clearable
+      data-phone="phone"
+      value="{{phone}}"
+      type="number"
+      placeholder="请输入手机号码"
+      bind:input="phonenum" 
+    />
+    <van-button bind:click="save" color="linear-gradient(to right, #FCC635,#FF9518)" size="large">保存</van-button>
+  </view>
+</view>

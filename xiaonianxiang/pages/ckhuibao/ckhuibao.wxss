@@ -1,0 +1,48 @@
+/* pages/ckhuibao/ckhuibao.wxss */
+.head {
+  display: flex
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.list{
+  width:100%;
+  border-bottom: 1px solid #eee
+}
+.bottom{
+  width:100%;
+  position: fixed;
+  bottom: 25rpx;
+  border-top: 1px solid #eee;
+  padding-top: 10rpx;
+}
+.bottom button{
+  height:70rpx
+}
+.fontcolor{
+  color: #f00;
+}
+.van-cell-text{
+  font-size: 30rpx;
+}
+.null image {
+  width:250rpx;height:250rpx;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%)
+}
+.null text {
+  margin-top:100rpx;
+  display: block;
+  text-align: center;
+  color:#999
+}

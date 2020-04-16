@@ -1,0 +1,92 @@
+<!--pages/xmzhichizhe/xmzhichizhe.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>支持者</view>
+  </view>
+  <!-- 支持者 -->
+  <view class='list'>
+    <van-collapse value="{{ activeNames }}" bind:change="onChange" >
+      <van-collapse-item name="{{index+1}}" border="{{false}}" wx:for="{{zc}}" wx:key='index'>
+        <view slot="title">
+          <van-row>
+            <van-col span="4"><image src='item.user.avatar_file'></image></van-col>
+            <van-col span="14">
+              <view>{{item.user_name}}</view>
+              <view class='time'>{{item.add_time}}</view> 
+            </van-col>
+            <van-col span="5">
+              <view class='money'>￥{{item.total_fee}}</view>
+              <view class='time'>{{
+              item.return_status==0?'未兑换':item.return_status==1?'已兑换':item.return_status==2?'已确认':'已申诉'
+              }}</view>
+            </van-col>
+          </van-row>
+        </view>
+        <view class='vanrow'>
+          <van-row>
+            <van-col span="6">姓名</van-col>
+            <van-col span="18">{{item.user.nick_name}}</van-col>
+          </van-row>
+          <van-row>
+            <van-col span="6">手机</van-col>
+            <van-col span="18">{{item.user_phone}}</van-col>
+          </van-row>
+          <van-row>
+            <van-col span="6">地址</van-col>
+            <van-col span="18">{{item.user_address}}</van-col>
+          </van-row>
+          <!-- <van-row>
+            <van-col span="6">回报内容</van-col>
+            <van-col span="18">对应的回报 ￥{{item.total_fee}}</van-col>
+          </van-row> -->
+          <van-row>
+            <van-col span="6">{{
+            item.return_status==0?'':item.return_status==1?'兑换时间':item.return_status==2?'确认时间':'申诉时间'
+            }}</van-col>
+            <van-col span="18">{{item.return_status==0?' ':item.update_time}}</van-col>
+          </van-row>
+          <van-row>
+            <van-col span="6">确认时间</van-col>
+            <van-col span="18">10:11</van-col>
+          </van-row>
+          <!-- <van-button size="large" bindtap="showPopup" color="linear-gradient(to right, #FCC635,#FF9518)">兑现回报</van-button> -->
+          <van-button 
+          size="large" 
+          disabled="item.return_status==1" 
+          data-return_status='{{item.return_status}}' 
+          data-return_id="{{item.user_return_id}}" 
+          data-id='{{item.user.user_id}}' 
+          bindtap="duihuanhb" 
+          color="linear-gradient(to right, #FCC635,#FF9518)">{{item.return_status==1?'已兑换回报':'兑现回报'}}</van-button>        
+        </view>
+      </van-collapse-item>
+
+    </van-collapse>
+  </view>
+
+  <van-dialog use-slot
+            title=""
+            show="{{ show }}"
+            show-cancel-button
+            confirm-button-open-type="getUserInfo"
+            bind:close="onClose"
+            bind:confirm="getUserInfo"
+          >
+        兑现回报后，支持者将收到确认短信，如未确认，7天后自动确认
+          </van-dialog>
+
+  <!-- button -->
+    <!-- <view class="btn">
+     
+      <van-action-sheet
+        show="{{ show }}"
+        description="兑现回报后，支持者将收到确认短信，如未确认，7天后自动确认"
+        actions="{{ actions }}"
+        bind:select="onSelect"
+        bind:cancel="onClose"
+        bind:click-overlay="onClose"
+        cancel-text="取消"
+      />
+    </view> -->
+</view>

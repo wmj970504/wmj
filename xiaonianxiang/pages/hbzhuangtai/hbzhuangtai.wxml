@@ -1,0 +1,50 @@
+<!--pages/hbzhuangtai/hbzhuangtai.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>回报状态</view>
+  </view>
+  <!-- 状态 -->
+  <view class='vanrow'>
+    <van-row>
+      <van-col span="6" offset="1" class="title">筹款</van-col>
+      <van-col span="17" class="content">{{list.project_title}}</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6"offset="1" class="title">支持金额</van-col>
+      <van-col span="17" class="content">{{list.amount}}元</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6"offset="1" class="title">截止时间</van-col>
+      <van-col span="17" class="content">{{list.deadline_day}}</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6"offset="1" class="title">应获回报</van-col>
+      <van-col span="17" class="content">{{list.return_content}}</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6"offset="1" class="title">发起人</van-col>
+      <van-col span="17" class="content">{{list.nick_name}}</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6"offset="1" class="title">状态</van-col>
+      <van-col span="17" class="content">{{getStatus(list.status)}}</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="16" offset="7" class="title">如对于回报存在疑问，你需要在{{list.complain_day}}截至日期前申诉，反馈至发起人</van-col>
+    </van-row>
+  </view>
+  <!-- button -->
+  <view class='btn'>
+    <van-row>
+      <van-col span="10" offset="1" class="title">
+        <van-button size="large" bindtap="toShensu" color="linear-gradient(to right, #FCC635,#FF9518)">{{list.status==2?"已申诉":"我要申诉"}}</van-button>
+      </van-col>
+      <van-col span="10" offset="2">
+        <van-button bindtap="queren" size="large"color="linear-gradient(to right, #FCC635,#FF9518)">
+        {{list.status==0?"确认回报":list.status==1?"确认回报":list.status==2?"确认回报":list.status==3?"已确认":"确认回报"}}
+        </van-button>
+      </van-col>
+    </van-row>
+  </view>
+</view>

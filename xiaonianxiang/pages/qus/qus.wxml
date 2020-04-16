@@ -1,0 +1,14 @@
+<!--pages/qus/qus.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>{{title}}</view>
+  </view>
+</view>
+<view class="qus">
+  <image class="shuxian" src="../../images/xian.png"></image>
+  <text>{{title}}</text>
+</view>
+<view class="ans">
+<rich-text nodes="{{ans}}"></rich-text>
+</view>

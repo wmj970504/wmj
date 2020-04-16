@@ -1,0 +1,41 @@
+<!--pages/others/others.wxml-->
+<view class="container">
+  <view class='othershead'>
+    <van-icon style=' top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <image class='touxiang' src='{{xx.avatar_file}}'></image>
+    <image class='beijing' src='../../images/mohu.png'></image>
+    <view class='name'>
+      <text>{{xx.nick_name}}</text>
+      <van-tag plain type="primary">{{xx.is_verify==1?'实名用户':'未实名'}}</van-tag>
+      <view>{{xx.profile}}</view>     
+    </view>
+    
+  </view>
+  <!-- 信息 -->
+  <view class='xinxi'>
+    <van-icon name="manager-o" color='#0aa1ed'/>
+    <text>{{xx.true_name}}</text>
+  </view>
+  <view class='xinxi'>
+    <van-icon name="phone-o"  color='#f26d6d'/>
+    <text>{{xx.mobile}}</text>
+  </view>
+  <view class='xinxi'>
+    <van-icon name="hotel-o" color='#19c7e2'/>
+    <text>{{xx.school}}</text>
+  </view>
+  <view class='xinxi'>
+    <van-icon name="location-o" color='#f89954'/>
+    <text>{{xx.loction}}</text>
+  </view>
+  <!-- 支持 -->
+  <view class='zhichi'>
+    <van-cell border="{{ false }}" title-class="cell-title" title="支持" is-link center label="{{xx.support_num}}" link-type="navigateTo" url="/pages/support2/support2?user_id={{user_id}}&name=zhichi"/>
+    <van-cell border="{{ false }}" title-class="cell-title" title="筹款" is-link center label="{{xx.raise_num}}" link-type="navigateTo" url="/pages/support2/support2?user_id={{user_id}}&name=choukuan"/>
+    <van-cell border="{{ false }}" title-class="cell-title" title="关注" is-link center label="{{xx.focus_count}}" link-type="navigateTo" url="/pages/myidol/myidol?user_id={{user_id}}"/>
+  </view>
+  <!-- 按钮 -->
+  <view class="btn {{id==1 ? 'hidden':''}}">
+    <van-button bind:click="cancel" color="{{guanzhu=='关注Ta'?'linear-gradient(to right, #FCC635,#FF9518)' : '#f00'}}" size="large">{{guanzhu}}</van-button>
+  </view>
+</view>

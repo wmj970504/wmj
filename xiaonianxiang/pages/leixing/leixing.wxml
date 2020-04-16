@@ -1,0 +1,24 @@
+<!--pages/leixing/leixing.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>{{title}}</view>
+  </view>
+  <text class='text'>以下证实材料将展示给支持者们</text>
+  <view class='row'>
+    <textarea class='text' maxlength="300" placeholder="证实材料补充说明" bindinput='inputText'/>
+    <view>{{num}}</view>
+  </view>
+  <!-- 上传图片 -->
+  <view class="img">
+    <van-uploader
+      file-list="{{ fileList }}"
+      bind:delete='del'
+      max-count="3"
+      bind:after-read="afterRead"
+    />
+  </view>
+  <view class="btn">
+    <van-button size="large" bindtap="baocun" color="linear-gradient(to right, #FCC635,#FF9518)">提交</van-button>
+  </view>
+</view>

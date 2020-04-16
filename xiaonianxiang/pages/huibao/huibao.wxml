@@ -1,0 +1,21 @@
+<!--pages/huibao/huibao.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>我的回报</view>
+  </view>
+  <view class='null {{array[0].project_title==undefined?"":"hidden"}}'>
+    <image src="../../images/空.png"></image>
+    <text>暂无回报</text>
+  </view>
+</view>
+
+<van-cell border="{{ false }}" is-link center link-type="navigateTo"
+  url="/pages/hbzhuangtai/hbzhuangtai?return_id={{item.user_return_id}}"  wx:for="{{array}}" wx:key="index">
+  <view slot="title" class="van-cell__title">
+    <view class="van-cell-text">{{item.project_title}}</view>
+    <view class="van-cell-text">{{item.return_content}}</view>
+    <view class="van-cell__label">¥{{item.amount}}</view>
+    <view class="van-cell__label">{{getStatus(item.return_status)}}</view>
+  </view>
+</van-cell>

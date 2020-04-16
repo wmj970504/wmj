@@ -1,0 +1,50 @@
+/* pages/tixian/tixian.wxss */
+page{
+  background: #eee
+}
+.head {
+  display: flex
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.money {
+  width:100%;
+  margin-top: 20rpx;
+}
+.money text{
+   color: #aaa;
+   margin: 20rpx 0 100rpx 20rpx
+}
+ .text {
+  display: block;
+  color: #aaa;
+  font-size:30rpx;
+  
+}
+.van-cell__title{
+  margin-left: 30rpx;
+  font-size: 40rpx;
+}
+.cell-title {
+  font-size: 38rpx;
+  font-weight: bold;
+  margin: 4rpx 30rpx;
+}
+.cell-title1 {
+  font-size: 30rpx;
+  margin: 4rpx 30rpx;
+  color: #aaa;
+}
+.btn{
+  width:95%
+}

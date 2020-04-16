@@ -1,0 +1,50 @@
+<!--pages/shensu/shensu.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>申诉</view>
+  </view>
+  <!-- 选择 -->
+  <view class='choose'>
+    <van-radio-group value="{{ radio }}" bind:change="onChange">
+      <van-cell-group>
+        <van-cell
+          title="未收到回报"
+          border="{{ false }}"
+          clickable
+          data-name="1"
+          bind:click="onClick"
+        >
+          <van-radio slot="right-icon" name="1" checked-color="#07c160" />
+        </van-cell>
+        <van-cell
+          title="回报与承诺不符"
+          border="{{ false }}"
+          clickable
+          data-name="2"
+          bind:click="onClick"
+        >
+          <van-radio slot="right-icon" name="2" checked-color="#07c160" />
+        </van-cell>
+        <van-cell
+          title="其他"
+          border="{{ false }}"
+          clickable
+          data-name="3"
+          bind:click="onClick"
+        >
+          <van-radio slot="right-icon" name="3" checked-color="#07c160" />
+        </van-cell>
+      </van-cell-group>
+    </van-radio-group>
+  </view>
+  <!-- textarea -->
+  <view class='row'>
+    <textarea class='text' maxlength="300" placeholder="描述申诉理由" bindinput='inputText'/>
+    <view>{{num}}</view>
+  </view>
+  <!-- 发布 -->
+  <view class="btn">
+    <van-button size="large" bindtap="fabu" color="linear-gradient(to right, #FCC635,#FF9518)">提交</van-button>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<!--pages/zhichizhe/zhichizhe.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>支持者</view>
+  </view>
+  <!-- list -->
+  <view class='list' wx:for="{{zc}}" wx:key="index">
+    <van-row>
+      <van-col span="4" offset="1" data-user_id='{{item.user.user_id}}'  bindtap="jump"><image src='{{item.user.avatar_file}}'></image></van-col>
+      <van-col span="15">
+        <view>{{item.user.nick_name}}</view>
+        <view class='time'>{{item.add_time}}</view>
+      </van-col>
+      <van-col span="4">￥{{item.amount}}</van-col>
+    </van-row>
+  </view>
+<view class='null' wx:if="{{zc[0].add_time==''||zc[0].add_time==undefined }}">
+    <image src='../../images/空.png'></image>
+    <text>暂无支持者</text>
+</view>
+
+  <!-- 底部 -->
+  <view class='bottom'>
+    <van-row>
+      <van-col span="4" offset="2" bindtap="fanhui"><van-icon name="close" size="60rpx" color="#aaa"/></van-col>
+      <van-col span="16">
+        <van-button size="large" color="linear-gradient(to right, #FCC635,#FF9518)">{{status==0?'进行中':status==1?'筹款成功':'筹款结束'}}</van-button>
+      </van-col>
+      <!-- <van-col span="4" offset="2"><van-icon name="more-o" size="60rpx" color="#aaa"/></van-col> -->
+    </van-row>  
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<!--pages/myidol/myidol.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon  style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>关注</view>
+  </view> 
+  <!-- 关注我的列表 -->
+  <view class='list'>
+    <view class='user' wx:for="{{list}}" wx:key="index">
+      <van-row>
+        <van-col  span="6"><image src='{{item.avatar}}' data-user_id='{{item.user_id}}' bindtap="toOthers"></image></van-col>
+        <van-col span="11"><text class="name">{{item.nick_name}}</text></van-col>
+        <van-col span="7"><van-button data-user_id='{{item.user_id}}' bind:click="cancel" plain round color="#aaa">{{item.is_focus==1?"已关注":"关注"}}</van-button></van-col>
+      </van-row>
+    </view>
+  </view>
+  <!-- 无关注 -->
+  <view class='null {{list[0].nick_name==undefined?"":"hidden"}}'>
+    <image src='../../images/空.png'></image>
+    <text>暂无关注</text>
+  </view>
+</view>

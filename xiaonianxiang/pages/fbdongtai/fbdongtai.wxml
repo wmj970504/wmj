@@ -1,0 +1,24 @@
+<!--pages/fbdongtai/fbdongtai.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>发布动态</view>
+  </view>
+  <!-- title -->
+  <view class='row'>
+    <textarea class='text' maxlength="300" placeholder="比如：详情补充，筹款进展，后续，互动..." bindinput='inputText'/>
+    <view>{{num}}</view>
+  </view>
+  <!-- 上传图片 -->
+  <view class="img">
+    <van-uploader
+      file-list="{{ fileList }}"
+      bind:delete='del'
+      max-count="2"
+      bind:after-read="afterRead"
+    />
+  </view>
+  <view class="btn">
+    <van-button size="large" bindtap="baocun" color="linear-gradient(to right, #FCC635,#FF9518)">发布</van-button>
+  </view>
+</view>

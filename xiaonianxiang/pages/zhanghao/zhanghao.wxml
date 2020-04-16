@@ -1,0 +1,72 @@
+<!--pages/zhanghao/zhanghao.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>账号管理</view>
+  </view>
+  <text>以下资料会展示在你的个人主页</text>
+  <view class='list'>
+    <van-cell
+      is-link
+      border="{{ false }}"
+      title="手机"
+      title-class="cell-title"
+      value="{{myphone}}"
+      value-class="cell-value"
+      link-type="navigateTo" 
+      url="/pages/phone/phone?phone={{myphone}}"
+    />
+  </view>
+  <view class='area'>
+    <van-cell border="{{ false }}" title="地区" value="{{dizhi}}" title-class="cell-title" is-link bind:click="showPopup" />
+    <van-popup show="{{ show }}" bind:close="onClose" position="bottom">
+      <van-area
+        area-list="{{ areaList }}" bind:confirm="showMap" bind:cancel="onClose"
+        columns-placeholder="{{ ['请选择', '请选择', '请选择'] }}"
+        title="标题" 
+      />
+    </van-popup>
+  </view>
+    <view class='list'>
+      <van-cell
+        is-link
+        border="{{ false }}"
+        title="学校"
+        title-class="cell-title"
+        value="{{myschool}}"
+        value-class="cell-value"
+        link-type="navigateTo"
+        url="/pages/school/school?school={{myschool}}"
+      />
+      <van-cell
+        is-link
+        border="{{ false }}"
+        title="公司"
+        title-class="cell-title"
+        value="{{mycompany}}"
+        value-class="cell-value"
+        link-type="navigateTo"
+        url="/pages/company/company?company={{mycompany}}"
+      />
+       <van-cell
+        is-link
+        border="{{ false }}"
+        title="个人简介"
+        title-class="cell-title"
+        value="{{myjianjie}}"
+        value-class="cell-value"
+        link-type="navigateTo"
+        url="/pages/jianjie/jianjie?jianjie={{myjianjie}}"
+      />
+      <van-cell
+        is-link
+        border="{{ false }}"
+        title="标签"
+        title-class="cell-title"
+        value="{{(mylabel[0]==undefined?'':mylabel[0])+' '+(mylabel[1]==undefined?'':mylabel[1])+' '+(mylabel[2]==undefined?'':mylabel[2])}}"
+        value-class="cell-value"
+        link-type="navigateTo"
+        url="/pages/label/label"
+      />
+  </view>
+</view>

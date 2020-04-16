@@ -1,0 +1,31 @@
+<view>
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='margin-top: {{navH-35}}px' class='word'>意见反馈</view>
+  </view>
+
+  <textarea class='text' border="{{ false }}" maxlength="300" placeholder="请写下你的宝贵意见" bindinput='inputText'/>
+  <view class="num">{{num}}</view>
+  <view class='content'>
+    <van-field
+      clearable
+      value="{{mobile}}"
+      placeholder="请输入手机"
+      bind:input="mobiletext"
+    />
+    <van-field
+      clearable
+      value="{{true_name}}"
+      placeholder="请输入姓名"
+      bind:input="nametext"
+    />
+  </view>
+  <van-field
+      clearable
+      data-school="school"
+      value="{{other}}"
+      placeholder="其他联系方式"
+      bind:input="othertext"
+    />
+  <van-button bind:click="save" color="linear-gradient(to right, #FCC635,#FF9518)" size="large">提交</van-button> 
+</view>

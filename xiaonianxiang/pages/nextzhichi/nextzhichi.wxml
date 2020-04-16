@@ -1,0 +1,55 @@
+<!--pages/nextzhichi/nextzhichi.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>支持</view>
+  </view>
+  <!-- 姓名信息 -->
+  <view class='message {{isShow}}'>
+    <text class='text'>填写联系人信息以便发起人及时给你兑现回报</text>
+    <van-cell-group>
+      <van-field
+        id="1"
+        border="{{false}}"
+        placeholder="输入你的姓名"
+        bind:change="onChange"
+      />
+      <van-field
+        id="2"
+        border="{{false}}"
+        type="number"
+        maxlength="11"
+        placeholder="输入你的手机号"
+        bind:change="onChange"
+      />
+      <van-field
+        id="3"
+        border="{{false}}"
+        placeholder="输入你的地址"
+        bind:change="onChange"
+      />
+      <van-field
+        id="4"
+        border="{{false}}"
+        placeholder="备注"
+        bind:change="onChange"
+      />
+    </van-cell-group>
+  </view>
+  <!-- 支付 -->
+  <view class='pay'>
+    <van-cell border="{{ false }}" center>
+      <view slot="title" class='cell'>
+        <image src='../../images/wxzf.png'></image>
+        <view>微信支付</view>
+      </view>
+    </van-cell>
+  </view>
+  <!-- 确认 -->
+  <view class="btn">
+    <van-button size="large" bindtap="zhifu"  color="linear-gradient(to right, #FCC635,#FF9518)">确认支付（{{money}}元）</van-button>
+  </view>
+  <view class='tiaokuan'>
+  <text class='text'>支持筹款表示已阅读并同意</text><navigator url=''>《支持条款》</navigator>
+  </view>
+</view>

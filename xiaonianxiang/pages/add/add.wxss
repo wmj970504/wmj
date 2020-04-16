@@ -1,0 +1,74 @@
+/* pages/add/add.wxss */
+page{
+  background: #eee
+}
+.head {
+  display: flex
+}
+.loginbtn{
+  width:50%;
+  margin-top: 70%;
+  color: #fff;
+  font-weight: 30rpx;
+  background: linear-gradient(to right,#FCC635,#FF9518);
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.aaa{
+  margin-top: 30rpx;
+  width:85%
+}
+.bbb{
+  margin-top: 30rpx;
+  width:15%
+}
+
+.jine{
+  display: flex;
+  width:100%;
+}
+
+.time {
+  width:100%;
+}
+
+.ziliao{
+  width:100%;
+}
+.ziliao van-cell{
+  display: block;
+}
+
+van-button{
+  width:95%;
+  margin-top:50rpx 
+}
+.text {
+  display: block;
+  font-size: 30rpx;
+  color: #aaa;
+  width:100%;
+  margin: 20rpx 0 20rpx 40rpx;
+  text-align: center
+}
+.tiaokuan navigator{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #aaa;
+  width:100%;
+  margin-left:0; 
+  margin: 20rpx 0 20rpx 20rpx;
+}
+.tiaokuan .text,.tiaokuan navigator{
+  display: inline;
+}

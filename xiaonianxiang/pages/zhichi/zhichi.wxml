@@ -1,0 +1,51 @@
+<!--pages/zhichi/zhichi.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>支持</view>
+  </view>
+  <!-- 支持金额 -->
+  <view class='jine'>
+    <van-field
+      value="{{ money }}"
+      clearable
+      label="支持金额"
+      placeholder="输入金额"
+      type="number"
+      input-align="right"
+      class="aaa"
+      bind:input="inputMoney"
+    />
+    <van-cell border="{{ false }}" title="元" class="bbb"/>
+  </view>
+  <!-- 选择框 -->
+  <view class='choose'>
+    <van-radio-group value="{{ radio }}" bind:change="onChange">
+      <van-cell-group>
+        <van-cell
+          border="{{ false }}"
+          title="不要回报，纯支持"
+          clickable
+          data-name="0"
+          bind:click="onClick"
+        >
+          <van-radio slot="right-icon" name="0" checked-color="#07c160" />
+        </van-cell>
+        <van-cell border="{{ false }}" center data-number="{{item.number}}" data-return_id='{{item.return_id}}' data-money='{{item.amount}}' clickable data-name="{{index+1}}" bind:click="onClick" wx:for='{{hb}}' wx:key='index'>
+          <view slot="title">
+            <view class="van-cell-text">
+              <view class='tou'>支持<text>{{item.amount}}</text>元或更多</view>
+              <view class='neirong'>{{item.content}}</view>
+              <view class='shijian'>兑现截止时间：{{item.deadline_day}} | 剩余{{item.number}}份</view>
+            </view>
+          </view>
+          <van-radio slot="right-icon" name="{{index+1}}" checked-color="#07c160" />
+        </van-cell>
+      </van-cell-group>
+    </van-radio-group>
+  </view>
+  <!-- 下一步 -->
+  <view class='btn'>
+    <van-button size="large" color="linear-gradient(to right, #FCC635,#FF9518)" bind:click="toNextzhichi">下一步</van-button>
+  </view>
+</view>

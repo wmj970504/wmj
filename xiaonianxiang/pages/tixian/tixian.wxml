@@ -1,0 +1,37 @@
+<!--pages/tixian/tixian.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>提现</view>
+  </view>
+  <view class='money'>
+    <!-- <van-cell
+      is-link
+      border="{{ false }}"
+      center
+      title="到账账户"
+      title-class="cell-title"
+      value="添加"
+      link-type="navigateTo"
+      url=""
+    /> -->
+    <van-cell border="{{ false }}" title="提现金额(最低{{down_amount}})" title-class="cell-title1"/>
+    <van-field
+      clearable
+      data-num="num"
+      value="{{num}}"
+      border="{{ false }}"
+      label="￥"
+      title-width="30pt"
+      type="digit"
+      placeholder="请输入金额"
+      bind:input="tixianjine"
+    />
+    <van-cell border="{{ false }}" title="可提现余额:￥{{can_transfer}}" title-class="cell-title1"/>
+    <text class=".text">预计3个工作日内到账，请耐心等待</text>  
+  </view>
+  <view class='btn'>
+    <van-button bind:click="tijiao" color="linear-gradient(to right, #FCC635,#FF9518)" size="large">申请提现</van-button>
+    <van-toast id="van-toast" />
+  </view>
+</view>

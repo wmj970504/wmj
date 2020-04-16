@@ -1,0 +1,47 @@
+<!--pages/add/add.wxml-->
+<!-- <button class="loginbtn" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">请登录</button> -->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>发起筹款</view>
+  </view>
+  <!-- 目标金额 -->
+  <view class='jine'>
+    <van-field
+      value="{{ money }}"
+      clearable
+      label="目标金额"
+      placeholder="输入金额"
+      type="number"
+      input-align="right"
+      class="aaa"
+      bind:change="moneychange"
+    />
+    <van-cell title="元" border="{{ false }}" class="bbb"/>
+  </view>
+ 
+  <!-- 筹款描述，回报，资料 --> 
+  <view class='ziliao'>
+    <van-cell border="{{ false }}" center title="筹款描述" is-link value="{{ckms}}" url="/pages/choukuanms/choukuanms"/>
+    <van-cell border="{{ false }}" center title="筹款回报" is-link value="{{ckhb}}" bindtap='jump' />
+    <van-cell border="{{ false }}" center title="完善资料" is-link url="/pages/zhanghao/zhanghao"/>
+  </view>
+   <!-- 截止日期 -->
+  <view class='time'>
+    <van-cell border="{{ false }}" title="截止日期" value="{{time}}" title-class="cell-title" is-link bind:click="showPopup" />
+    <van-popup show="{{ show }}" bind:close="onClose" position="bottom">
+      <van-datetime-picker
+        type="date"
+        value="{{ currentDate }}"
+        bind:input="onInput"
+        min-date="{{ minDate }}"
+        bind:confirm="showMap" bind:cancel="onClose"
+      />
+    </van-popup>
+  </view>
+  <!-- button -->
+  <van-button block color="linear-gradient(to right, #FCC635,#FF9518)" bindtap="start">开始筹款</van-button>
+  <view class='tiaokuan'>
+  <text class='text'>发起筹款表示已阅读并同意</text><navigator url='/pages/miaoshu/miaoshu?type=raise'>《筹款条款》</navigator>
+  </view>
+</view>

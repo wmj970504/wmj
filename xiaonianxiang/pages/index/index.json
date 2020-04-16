@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "tabbar": "../../tabbarComponent/tabbar",
+    "van-tag": "@vant/weapp/tag",
+    "van-row": "@vant/weapp/row",
+    "van-col": "@vant/weapp/col",
+    "van-search": "@vant/weapp/search",
+    "van-tab": "@vant/weapp/tab",
+    "van-tabs": "@vant/weapp/tabs"
+  },
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,23 @@
+<!--pages/choukuanhb/choukuanhb.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>筹款回报</view>
+  </view>
+  <text class='text'>筹款回报列表</text>
+  <!-- 列表 -->
+  <view class='list' wx:for='{{list}}' wx:key="index">
+    <view>支持金额：￥{{item.amount}}</view>
+    <view class='shijian'>兑换截止时间：{{item.deadline_day}} | 份数：{{item.number}}份</view>
+    <view>{{item.content}}</view>
+    <image bindtap="del"  data-return_id='{{item.return_id}}' data-index='{{index}}' src="../../images/del.png"></image>
+  </view>
+  <!-- 添加回报 -->
+  <view class='add'>
+    <van-cell border="{{ false }}" icon="plus"is-link url="/pages/addhb/addhb">
+      <view slot="title">
+        <view class="van-cell-text">添加筹款回报</view>
+      </view>
+    </van-cell>
+  </view>
+</view>

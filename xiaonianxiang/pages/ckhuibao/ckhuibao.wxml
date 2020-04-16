@@ -1,0 +1,30 @@
+<!--pages/ckhuibao/ckhuibao.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>筹款回报</view>
+  </view>
+  <!-- list -->
+  <view class='list'>
+    <van-cell wx:for="{{hb}}" wx:key="index" border="{{ false }}" label="兑现截止时间：{{item.deadline_day}}" is-link center url="/pages/zhichi/zhichi?project_id={{project_id}}">
+      <view slot="title">
+        <view>支持<text class='fontcolor'>{{item.amount}}</text>元或更多</view>
+        <view class="van-cell-text">{{item.content}}</view>
+      </view>
+    </van-cell>
+  </view>
+  <!-- 底部 -->
+  <!-- <view class='bottom'>
+    <van-row>
+      <van-col span="4" offset="2" bindtap='fanhui'><van-icon name="close" size="60rpx" color="#aaa"/></van-col>
+      <van-col span="12">
+        <van-button size="large" color="linear-gradient(to right, #FCC635,#FF9518)">支持他</van-button>
+      </van-col>
+      <van-col span="4" offset="2"><van-icon name="more-o" size="60rpx" color="#aaa"/></van-col>
+    </van-row>  
+  </view> -->
+</view>
+<view class='null' wx:if="{{hb[0].amount==undefined}}">
+    <image src='../../images/空.png'></image>
+    <text>暂无回报</text>
+  </view>

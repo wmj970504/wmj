@@ -1,0 +1,91 @@
+<!--pages/choukuanxq/choukuanxq.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>筹款详情</view>
+  </view>
+  <!-- 概览 -->
+  <view class='content'>
+    <!-- 标题 -->
+    <van-row>
+      <van-col span="6" offset="1"><image class='img' src='../../images/banner.png'></image></van-col>
+      <van-col span="14">
+        <view>{{list.title}}</view>
+        <view class='rowtext'>{{list.content}}</view>
+      </van-col>
+      <!-- <van-col span="3"><van-icon name="arrow" class='icon'/></van-col> -->
+    </van-row>
+    <!-- 进度 -->
+    <van-row>
+      <van-col span="6" offset="1">
+        <van-circle class="{{yc}}" size="70" value="{{ list.raise_progress }}" color="{{ gradientColor }}" text="{{list.raise_progress}}%" layer-color="#eeeeee"/>
+        <view style='{{yc=="hidden"?"width:70px;height:75px":""}}'></view>
+      </van-col>
+      <van-col span="14">
+        <view>￥{{list.raised_amount}}</view>
+        <view class='rowtext'>目标{{list.target_amount}}元，{{list.status==1?'筹款成功':list.status==2?'已结束':'进行中'}}</view>
+      </van-col>
+    </van-row>
+    <!-- cell -->
+    <van-cell border="{{ false }}" title="支持者" is-link title-class="celltitle" url="/pages/xmzhichizhe/xmzhichizhe?project_id={{project_id}}">
+      <view class="van-cell__value van-cell__value">
+        <!-- <van-tag round>{{zctag}}</van-tag> -->
+      </view>
+    </van-cell>
+    <van-cell border="{{ false }}" title="筹款回报" is-link title-class="celltitle" url="/pages/ckhuibao/ckhuibao?project_id={{project_id}}">
+      <view class="van-cell__value van-cell__value">
+        <!-- <van-tag round>{{hbtag}}</van-tag> -->
+      </view>
+    </van-cell>
+    <van-cell border="{{ false }}" title="筹款动态" is-link title-class="celltitle"  url="/pages/ckdongtai/ckdongtai?project_id={{project_id}}">
+      <view class="van-cell__value van-cell__value">
+        <!-- <van-tag round>{{dttag}}</van-tag> -->
+      </view>
+    </van-cell>
+    <van-cell border="{{ false }}" title="筹款证实" is-link title-class="celltitle" value="提交" url="/pages/ckzhengshi/ckzhengshi?project_id={{project_id}}"></van-cell>
+  </view>
+  <!-- 分享 -->
+  <!-- <view class="btn">
+     <van-col span="3">
+          <image src='../../images/gb.png'></image>           
+      </van-col>
+      <van-col span="18">
+        <van-button size="large" bindtap='showPopup' color="linear-gradient(to right, #FCC635,#FF9518)">分享筹款</van-button>
+      </van-col>
+      <van-col span="3">
+        <image src='../../images/add.png'></image>
+      </van-col>    
+  </view> -->
+  <view class='bottom'>
+    <van-row>
+      <van-col span="4" offset="2" bindtap='fanhui'><van-icon name="close" size="60rpx" color="#aaa"/></van-col>
+      <van-col span="12">
+        <van-button   size="large" color="linear-gradient(to right, #FCC635,#FF9518)">{{list.status==1?'筹款成功':list.status==2?'已结束':'进行中'}}</van-button>
+      </van-col>
+      <van-col span="4" offset="2" bindtap='showPopup'><van-icon name="more-o" size="60rpx" color="#aaa"/></van-col>
+    </van-row>  
+  </view>
+    <van-action-sheet z-index='500' show="{{ show }}" bind:cancel="onClose" bind:click-overlay="onClose" cancel-text="取消">
+      <van-divider contentPosition="center">分享</van-divider>     
+      <view class='tupian'>
+        <van-row>
+          <van-col span="8" bindtap='tiaozhuan' data-url='/pages/fbdongtai/fbdongtai'>
+            <image  src='../../images/add.png'></image>
+            <view>发布动态</view>
+          </van-col>
+          <van-col span="8" bindtap='tiaozhuan' data-url="/pages/addhb/addhb">
+            <image src='../../images/lp.png'></image>
+            <view>添加回报</view>
+          </van-col>
+          <van-col span="8">
+            <image  bindtap="jieshu" src='../../images/gb.png'></image>
+            <view>提前结束</view>            
+          </van-col>
+          <!-- <van-col span="6">
+            <image src='../../images/del.png'></image>
+            <view>删除</view>            
+          </van-col> -->
+        </van-row>
+      </view>
+    </van-action-sheet>
+</view>

@@ -1,0 +1,11 @@
+<view class='share'>
+
+  <canvas canvas-id="shareCanvas" style="width:300px;height:380px"></canvas>
+
+    <view class='bottom'>
+
+        <image src="/image/user/close1.png" bindtap='closeShare'></image>
+
+    </view>
+
+</view>

@@ -1,0 +1,104 @@
+/* pages/search/search.wxss */
+.head {
+  display: flex
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+
+.search {
+  width:100%
+}
+
+.outside{
+  width:auto;
+  border: 1rpx solid #fff;
+  position: relative;
+  margin-bottom: 10rpx;
+}
+.inside{
+  width:auto;
+  border: 1rpx solid #eee;
+  margin: 50rpx 5% 0 5%;
+  position: relative
+}
+.touxiang{
+  width:90rpx;height:90rpx;
+  border-radius: 50%;
+  position: absolute;
+  top:25rpx;left: 6%;
+  z-index: 99;
+}
+.name{
+  display: flex;
+  margin-top: 12rpx;
+}
+.nametext{
+  font-size: 35rpx;
+  color: #666;
+  margin-left: 100rpx
+}
+.shiming{
+  width:120rpx;height:30rpx;
+  margin-top: 10rpx
+}
+.choukuan{
+  width:120rpx;height:60rpx;
+  position: absolute;
+  right: 2%;top: -4rpx
+}
+.choukuan text{
+  display: block;
+  position: absolute;
+  top:2rpx;right: 12rpx;
+  font-size: 25rpx;
+  color: #fff;
+}
+.choukuan image{
+  width:100%;height:100%;
+}
+.age{
+  margin-top: 20rpx;
+}
+.age image{
+  width:18rpx;height:18rpx;
+}
+.age van-tag{
+  margin-left: 15rpx
+}
+.jindu {
+  margin-top: 20rpx;
+  margin-left: 12rpx;
+  font-size: 35rpx
+}
+.jindu view {
+  height:6rpx;
+  margin-top: 10rpx;
+  border-radius: 2rpx;
+  background-image:linear-gradient(to right,#FCC635,#FF9518);
+}
+.botton{
+  margin-top: 25rpx;
+  font-size: 28rpx;
+  color: #aaa
+}
+.kong{
+  height:250rpx;
+}
+.hidden{
+  display: none
+}
+.no{
+  text-align: center;
+  margin-top: 30rpx;
+  color: #666
+}

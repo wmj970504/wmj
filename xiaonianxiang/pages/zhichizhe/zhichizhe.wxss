@@ -1,0 +1,53 @@
+/* pages/zhichizhe/zhichizhe.wxss */
+.head {
+  display: flex
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.list{
+  width:100%;
+  padding: 20rpx;
+  border-bottom: 1px solid #eee;
+  margin-bottom:70rpx
+}
+.list image{
+  width:90rpx;height:90rpx;
+  border-radius: 50%
+}
+.time{
+  font-size: 30rpx;
+  color: #aaa;
+  margin-top: 6rpx
+}
+.bottom{
+  width:100%;
+  position: fixed;
+  bottom: 25rpx;
+  border-top: 1px solid #eee;
+  padding-top: 10rpx;
+}
+.bottom button{
+  height:70rpx
+}
+.null image {
+  width:250rpx;height:250rpx;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%)
+}
+.null text {
+  margin-top:100rpx;
+  display: block;
+  text-align: center;
+  color:#999
+}

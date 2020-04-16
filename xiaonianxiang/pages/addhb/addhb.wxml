@@ -1,0 +1,62 @@
+<!--pages/addhb/addhb.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>添加回报</view>
+  </view>
+  <!-- textarea -->
+  <view class='row'>
+    <textarea class='text' maxlength="300" placeholder="描述回报内容" bindinput='inputText'/>
+    <view>{{num}}</view>
+  </view>
+  <!-- 支持金额 -->
+  <view class='jine'> 
+    <van-field
+      clearable
+      label="支持金额"
+      placeholder="支持该回报所需金额"
+      type="number"
+      input-align="right"
+      class="aaa"
+      bind:input="inputMoney"
+    />
+    <van-cell border="{{ false }}" title="元/份" class="bbb"/>
+  </view>
+  <!-- 回报数量 -->
+  <view class='jine'>
+    <van-field
+      clearable
+      label="回报限量"
+      placeholder="回报数量"
+      type="number"
+      input-align="right"
+      class="aaa"
+      bind:input="inputShuliang"
+    />
+    <!-- <input type="number" pattern="\d*"/> -->
+    <van-cell border="{{ false }}" title="份" class="bbb"/>
+  </view>
+  <!-- 截止时间 -->
+  <view class='stop'>
+  <view class='jine'>
+     <van-field
+      clearable
+      label="兑现截止时间"
+      placeholder="最大60"
+      type="number"
+      input-align="right"
+      class="aaa1"
+      bind:input="inputday"
+    />
+    <van-cell border="{{ false }}" title="天内" class="bbb1"/>
+    </view>
+    <!-- <van-cell border="{{ false }}" title="兑现截止时间" is-link value="筹款成功{{deadline_day}}天内" /> -->
+    <van-cell border="{{ false }}" title="使用快递寄送回报" class="switch">
+      <van-switch checked="{{ checked }}" bind:change="onChange" size="15pt" active-color="#FCC635"/>
+    </van-cell>
+  </view>
+  <text class='text'>支持者需填写姓名，手机号，地址</text>
+  <view class='btn'>
+    <van-button bindtap="save"  size="large" color="linear-gradient(to right, #FCC635,#FF9518)">保存</van-button>
+  </view>
+</view>

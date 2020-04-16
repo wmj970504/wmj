@@ -1,0 +1,14 @@
+<!--pages/ckzhengshi/ckzhengshi.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' class='vanicon' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>筹款证实</view>
+  </view>
+  <text class='text'>根据实际情况，选择筹款类型</text>
+  <!-- 类型 -->
+  <view class='list'>
+    <van-cell border="{{ false }}" title="创作" is-link url="/pages/leixing/leixing?id=1&project_id={{project_id}}"/>
+    <van-cell border="{{ false }}" title="创意" is-link url="/pages/leixing/leixing?id=2&project_id={{project_id}}"/>
+    <van-cell border="{{ false }}" title="创业" is-link url="/pages/leixing/leixing?id=3&project_id={{project_id}}"/>
+  </view>
+</view>

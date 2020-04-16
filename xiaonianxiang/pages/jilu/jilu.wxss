@@ -1,0 +1,37 @@
+/* pages/jilu/jilu.wxss */
+page{
+  background: #eee
+}
+.head {
+  display: flex
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.jilu{
+  width:100%;
+}
+.value{
+  font-size: 35rpx;
+  font-weight: bold
+}
+.van-cell-text1{
+  font-size: 30rpx;
+}
+.van-cell-text2{
+  font-size: 28rpx;
+  color: #999
+}
+.van-cell-text3{
+  font-size: 28rpx;
+  color: #aaa
+}

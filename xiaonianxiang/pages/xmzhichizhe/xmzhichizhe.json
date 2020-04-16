@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon",
+    "van-row": "@vant/weapp/row",
+    "van-col": "@vant/weapp/col",
+    "van-button": "@vant/weapp/button",
+    "van-cell": "@vant/weapp/cell",
+    "van-collapse": "@vant/weapp/collapse",
+    "van-collapse-item": "@vant/weapp/collapse-item",
+    "van-action-sheet": "@vant/weapp/action-sheet" ,
+    "van-dialog": "@vant/weapp/dialog"  
+  }
+}

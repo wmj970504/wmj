@@ -1,0 +1,41 @@
+/* pages/xmzhichizhe/xmzhichizhe.wxss */
+.head {
+  display: flex
+}
+
+.head van-icon {
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+
+.word {
+  width:80%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  color: #fff;
+}
+.list{
+  width:100%
+}
+.list image{
+  width:90rpx;height:90rpx;
+  border-radius: 50%
+}
+.time{
+  font-size: 25rpx;
+  color: #aaa;
+  margin-top: 6rpx
+}
+.money{
+  text-align: center
+}
+.vanrow{
+  background: #eee
+}
+.vanrow van-row{
+  display: block;
+  margin: 10rpx 0
+}
+.btn{
+  width: 95%
+}

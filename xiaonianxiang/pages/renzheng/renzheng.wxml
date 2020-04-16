@@ -1,0 +1,69 @@
+<!--pages/renzheng/renzheng.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>个人认证</view>
+  </view>
+  <view class="tishi" wx:if="{{!smstatus}}">资料仅供认证使用，小念头将保护您的信息安全</view>
+  <van-cell-group wx:if="{{!smstatus}}">
+    <van-field
+        value="{{ value }}"
+        placeholder="请输入真实姓名"
+        border="{{ false }}"
+        bind:change="onChange"
+        value="{{uname}}"
+        id='uname'
+    />
+    <view > 
+      <van-field
+        value="{{ value }}"
+        placeholder="身份证号码"
+        border="{{ false }}"
+        bind:change="onChange" 
+        class="zhengjian"
+        value="{{sfzid}}"
+        id='sfzid'
+      />
+    </view>
+    <view class="sfz" bindtap="shangchuan" id="beimian"><image mode="widthFix" src="{{beimian}}"></image></view>
+    <view class="sfz" bindtap="shangchuan" id="zhengmian"><image mode="widthFix" src="{{zhengmian}}"></image></view>
+    <view class="sfz" bindtap="shangchuan" id="shouchi"><image mode="widthFix" src="{{shouchi}}"></image></view>
+    <view class="sfz"><image mode="widthFix" src="../../images/WechatIMG21.jpeg"></image></view>
+    <view class="sfz1">证件背面照</view>
+    <view class="sfz1">证件正面照</view>
+    <view class="sfz1">手持证件照</view>
+    <view class="sfz1"><text>示例</text></view>
+  </van-cell-group>
+  <view class="tishi" wx:if="{{!smstatus}}">资料仅供认证使用，小念头将保护您的信息安全</view>
+  <van-cell-group wx:if="{{!smstatus}}">
+    <view >
+      <van-field
+        value="{{ value }}"
+        placeholder="手机号码"
+        border="{{ false }}"
+        bind:change="onChange" 
+        type="number"
+        value='{{phonenum}}'
+        class="zhengjian"
+        id='phonenum'
+      />
+      <view> 
+        <van-cell border="{{ false }}" title="{{phone}}" is-link bind:click="showPopup" />
+        <van-popup 
+          show="{{ show }}" bind:close="onClose" 
+          position="bottom" 
+          custom-style="height: 50%;"
+        >
+          <van-picker show-toolbar columns="{{ phones }}" 
+            bind:cancel="onClose" 
+            bind:confirm="onChance"
+            id="phone"
+          />
+        </van-popup>
+      </view>
+    </view>
+  </van-cell-group>
+  <view class="btn">
+    <van-button size="large" bindtap="tijiao" color="linear-gradient(to right, #FCC635,#FF9518)">{{smstatus?'已提交':'提交认证'}}      </van-button>
+  </view>
+</view>

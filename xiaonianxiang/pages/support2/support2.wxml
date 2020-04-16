@@ -1,0 +1,17 @@
+<!--pages/support/support.wxml-->
+<view class="container">
+  <view class='head'>
+    <van-icon style='  margin-top: {{navH-35}}px' name="arrow-left" color='white' bindtap='fanhui'/>
+    <view style='  margin-top: {{navH-35}}px' class='word'>{{title}}</view>
+  </view>
+  <!-- 内容 -->
+  <view class='content' bindtap='toXiangqing' data-project_id='{{item.project_id}}' wx:for="{{zc}}" wx:key="index">
+    <view class='content1'><image src='{{item.image}}'></image></view>
+    <view class='content2'>
+      <text class="title">{{item.title}}</text>
+      <text class='text1'>{{item.support_num}}人支持</text>   
+      <text class='text1'>已筹￥{{item.raised_amount}}</text>
+      <text class='text1'>{{item.status==0?'正在筹款':item.status==1?'筹款成功':'筹款结束'}}</text>
+    </view>
+  </view>
+</view>

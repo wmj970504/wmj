@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/personal/personal",   
+    "pages/miaoshu/miaoshu",
+    "pages/choukuanms/choukuanms",
+    "pages/zhengshilist/zhengshilist",
+    "pages/ckdongtai/ckdongtai",
+    "pages/search/search",  
+    "pages/phone/phone",
+    "pages/zhanghao/zhanghao",
+    "pages/renzheng/renzheng",
+    "pages/question/question",
+    "pages/qus/qus",
+    "pages/details/details",
+    "pages/choukuanhb/choukuanhb",
+    "pages/choukuanxq/choukuanxq",
+    "pages/fbdongtai/fbdongtai",
+    "pages/mywallet/mywallet",
+    "pages/nextzhichi/nextzhichi",
+    "pages/addhb/addhb",
+    "pages/others/others",
+    "pages/myidol/myidol",
+    "pages/myfans/myfans",
+    "pages/school/school",
+    "pages/company/company",
+    "pages/message/message",
+    "pages/jilu/jilu",
+    "pages/ckhuibao/ckhuibao",
+    "pages/ckzhengshi/ckzhengshi",
+    "pages/leixing/leixing",
+    "pages/shensu/shensu",
+    "pages/huibao/huibao",
+    "pages/add/add",
+    "pages/zhichizhe/zhichizhe",
+    "pages/zhichi/zhichi",
+    "pages/xmzhichizhe/xmzhichizhe",
+    "pages/tixian/tixian",
+    "pages/support/support",
+    "pages/hbzhuangtai/hbzhuangtai",
+    "pages/support2/support2",
+    "pages/jianjie/jianjie",
+    "pages/label/label",
+    "pages/opinion/opinion",
+    "pages/user/ShareCircleOfFriends"
+  ],
+  "window": {
+    "navigationStyle":"custom"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "selectedColor": "#666",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/homepage-1.png",
+        "selectedIconPath": "/images/homepage-2.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "/images/wode.png",
+        "selectedIconPath": "/images/wode-2.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

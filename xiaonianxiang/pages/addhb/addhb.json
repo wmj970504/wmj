@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon",
+    "van-cell": "@vant/weapp/cell",
+    "van-field": "@vant/weapp/field",
+    "van-switch": "@vant/weapp/switch",
+    "van-button": "@vant/weapp/button"
+  }
+}
